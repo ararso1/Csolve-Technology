@@ -1,0 +1,502 @@
+/**
+ * Csolve Technology — homepage
+ * Brand direction: deep teal/ink + warm amber accent. Fraunces + Sora.
+ */
+
+:root {
+	--csolve-ink: #0b1f24;
+	--csolve-teal: #0f3d3e;
+	--csolve-teal-mid: #1a5c5e;
+	--csolve-sand: #e8efe9;
+	--csolve-cream: #f4f7f5;
+	--csolve-amber: #c9852a;
+	--csolve-amber-bright: #e0a04a;
+	--csolve-white: #ffffff;
+	--csolve-muted: rgba(11, 31, 36, 0.68);
+	--csolve-max: 1120px;
+	--csolve-font-display: "Fraunces", Georgia, serif;
+	--csolve-font-body: "Sora", system-ui, sans-serif;
+}
+
+.csolve-home {
+	font-family: var(--csolve-font-body);
+	color: var(--csolve-ink);
+	background: var(--csolve-cream);
+	overflow-x: hidden;
+}
+
+.csolve-home h1,
+.csolve-home h2,
+.csolve-home h3 {
+	font-family: var(--csolve-font-display);
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	line-height: 1.15;
+	margin: 0;
+}
+
+.csolve-wrap {
+	width: min(100% - 2.5rem, var(--csolve-max));
+	margin-inline: auto;
+}
+
+.csolve-eyebrow {
+	font-family: var(--csolve-font-body);
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--csolve-amber);
+	margin: 0 0 0.75rem;
+}
+
+.csolve-section-head {
+	max-width: 36rem;
+	margin-bottom: 3rem;
+}
+
+.csolve-section-head h2 {
+	font-size: clamp(2rem, 4vw, 2.75rem);
+	margin-bottom: 0.75rem;
+}
+
+.csolve-section-head p {
+	margin: 0;
+	color: var(--csolve-muted);
+	font-size: 1.05rem;
+	line-height: 1.65;
+}
+
+/* ---------- Hero ---------- */
+.csolve-hero {
+	position: relative;
+	min-height: 100vh;
+	min-height: 100dvh;
+	display: flex;
+	align-items: flex-end;
+	padding: 7rem 0 5rem;
+	color: var(--csolve-white);
+	isolation: isolate;
+}
+
+.csolve-hero__bg {
+	position: absolute;
+	inset: 0;
+	z-index: -2;
+	background:
+		radial-gradient(ellipse 80% 60% at 70% 20%, rgba(201, 133, 42, 0.28), transparent 55%),
+		radial-gradient(ellipse 70% 50% at 10% 80%, rgba(26, 92, 94, 0.55), transparent 50%),
+		linear-gradient(155deg, #061416 0%, var(--csolve-ink) 40%, var(--csolve-teal) 100%);
+}
+
+.csolve-hero__grid {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	opacity: 0.35;
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+	background-size: 64px 64px;
+	mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
+	animation: csolve-grid-drift 28s linear infinite;
+}
+
+@keyframes csolve-grid-drift {
+	from { background-position: 0 0, 0 0; }
+	to { background-position: 64px 64px, 64px 64px; }
+}
+
+.csolve-hero__inner {
+	width: min(100% - 2.5rem, var(--csolve-max));
+	margin-inline: auto;
+	padding-bottom: 2rem;
+}
+
+.csolve-hero__brand {
+	font-family: var(--csolve-font-display);
+	font-size: clamp(2.5rem, 7vw, 4.5rem);
+	font-weight: 700;
+	line-height: 1.05;
+	margin: 0 0 1.25rem;
+	color: var(--csolve-white);
+}
+
+.csolve-hero__headline {
+	font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+	font-weight: 500;
+	font-style: italic;
+	color: rgba(255, 255, 255, 0.88);
+	max-width: 22ch;
+	margin: 0 0 1.25rem;
+}
+
+.csolve-hero__lead {
+	max-width: 34rem;
+	font-size: 1.05rem;
+	line-height: 1.7;
+	color: rgba(255, 255, 255, 0.72);
+	margin: 0 0 2rem;
+}
+
+.csolve-hero__cta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.85rem;
+}
+
+.csolve-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.9rem 1.5rem;
+	font-family: var(--csolve-font-body);
+	font-size: 0.9rem;
+	font-weight: 600;
+	text-decoration: none;
+	border-radius: 2px;
+	transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.csolve-btn:hover {
+	transform: translateY(-2px);
+}
+
+.csolve-btn--primary {
+	background: var(--csolve-amber);
+	color: var(--csolve-ink);
+	border: 1px solid var(--csolve-amber);
+}
+
+.csolve-btn--primary:hover {
+	background: var(--csolve-amber-bright);
+	color: var(--csolve-ink);
+}
+
+.csolve-btn--ghost {
+	background: transparent;
+	color: var(--csolve-white);
+	border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.csolve-btn--ghost:hover {
+	border-color: var(--csolve-white);
+	color: var(--csolve-white);
+}
+
+.csolve-hero__scroll {
+	position: absolute;
+	bottom: 1.5rem;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 22px;
+	height: 36px;
+	border: 1px solid rgba(255, 255, 255, 0.35);
+	border-radius: 12px;
+}
+
+.csolve-hero__scroll span {
+	display: block;
+	width: 4px;
+	height: 8px;
+	margin: 8px auto 0;
+	background: var(--csolve-amber);
+	border-radius: 2px;
+	animation: csolve-scroll-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes csolve-scroll-pulse {
+	0%, 100% { opacity: 0.3; transform: translateY(0); }
+	50% { opacity: 1; transform: translateY(10px); }
+}
+
+/* ---------- Mission / Vision ---------- */
+.csolve-mv {
+	padding: 6rem 0;
+	background: var(--csolve-white);
+}
+
+.csolve-mv__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+	.csolve-mv__grid {
+		grid-template-columns: 1fr 1fr;
+		gap: 1.5rem;
+	}
+}
+
+.csolve-mv__card {
+	padding: 2rem 1.75rem;
+	background: var(--csolve-cream);
+	border-left: 3px solid var(--csolve-teal-mid);
+}
+
+.csolve-mv__card--accent {
+	background: var(--csolve-ink);
+	color: var(--csolve-white);
+	border-left-color: var(--csolve-amber);
+}
+
+.csolve-mv__card--accent p {
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.csolve-mv__label {
+	display: block;
+	font-size: 0.7rem;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--csolve-amber);
+	margin-bottom: 0.85rem;
+}
+
+.csolve-mv__card h3 {
+	font-size: 1.55rem;
+	margin-bottom: 0.85rem;
+}
+
+.csolve-mv__card p {
+	margin: 0;
+	line-height: 1.7;
+	color: var(--csolve-muted);
+	font-size: 0.98rem;
+}
+
+/* ---------- Values ---------- */
+.csolve-values {
+	padding: 6rem 0;
+	background:
+		linear-gradient(180deg, var(--csolve-sand) 0%, var(--csolve-cream) 100%);
+}
+
+.csolve-values__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 0;
+	border-top: 1px solid rgba(11, 31, 36, 0.12);
+}
+
+.csolve-values__list li {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0.35rem;
+	padding: 1.5rem 0;
+	border-bottom: 1px solid rgba(11, 31, 36, 0.12);
+}
+
+@media (min-width: 700px) {
+	.csolve-values__list li {
+		grid-template-columns: 11rem 1fr;
+		gap: 2rem;
+		align-items: baseline;
+	}
+}
+
+.csolve-values__list strong {
+	font-family: var(--csolve-font-display);
+	font-size: 1.35rem;
+	font-weight: 700;
+}
+
+.csolve-values__list span {
+	color: var(--csolve-muted);
+	line-height: 1.65;
+	font-size: 0.98rem;
+}
+
+/* ---------- History ---------- */
+.csolve-history {
+	padding: 6rem 0 5rem;
+	background: var(--csolve-ink);
+	color: var(--csolve-white);
+}
+
+.csolve-history .csolve-section-head p {
+	color: rgba(255, 255, 255, 0.65);
+}
+
+.csolve-timeline {
+	list-style: none;
+	margin: 0 0 3.5rem;
+	padding: 0;
+	position: relative;
+}
+
+.csolve-timeline::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.35rem;
+	bottom: 0.35rem;
+	width: 1px;
+	background: linear-gradient(180deg, var(--csolve-amber), rgba(255, 255, 255, 0.15));
+}
+
+@media (min-width: 768px) {
+	.csolve-timeline::before {
+		left: 7.5rem;
+	}
+}
+
+.csolve-timeline__item {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0.5rem;
+	padding: 0 0 2.75rem 1.75rem;
+	position: relative;
+}
+
+@media (min-width: 768px) {
+	.csolve-timeline__item {
+		grid-template-columns: 7.5rem 1fr;
+		gap: 2rem;
+		padding-left: 0;
+	}
+}
+
+.csolve-timeline__item::before {
+	content: "";
+	position: absolute;
+	left: -4px;
+	top: 0.45rem;
+	width: 9px;
+	height: 9px;
+	border-radius: 50%;
+	background: var(--csolve-amber);
+	box-shadow: 0 0 0 4px rgba(201, 133, 42, 0.25);
+}
+
+@media (min-width: 768px) {
+	.csolve-timeline__item::before {
+		left: calc(7.5rem - 4px);
+	}
+}
+
+.csolve-timeline__year {
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--csolve-amber-bright);
+	padding-top: 0.15rem;
+}
+
+.csolve-timeline__body h3 {
+	font-size: 1.4rem;
+	margin-bottom: 0.5rem;
+}
+
+.csolve-timeline__body p {
+	margin: 0;
+	color: rgba(255, 255, 255, 0.68);
+	line-height: 1.7;
+	max-width: 38rem;
+	font-size: 0.98rem;
+}
+
+.csolve-milestones {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1.5rem;
+	padding-top: 2rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+@media (min-width: 640px) {
+	.csolve-milestones {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+	}
+}
+
+.csolve-milestone {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.15rem 0.2rem;
+}
+
+.csolve-milestone__num,
+.csolve-milestone__suffix {
+	font-family: var(--csolve-font-display);
+	font-size: clamp(2.25rem, 4vw, 3rem);
+	font-weight: 700;
+	color: var(--csolve-amber-bright);
+	line-height: 1;
+}
+
+.csolve-milestone__label {
+	flex-basis: 100%;
+	margin-top: 0.4rem;
+	font-size: 0.85rem;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---------- Close CTA ---------- */
+.csolve-close {
+	padding: 6rem 0;
+	background:
+		radial-gradient(ellipse 60% 80% at 100% 50%, rgba(201, 133, 42, 0.12), transparent 60%),
+		var(--csolve-cream);
+}
+
+.csolve-close__inner {
+	max-width: 36rem;
+}
+
+.csolve-close h2 {
+	font-size: clamp(2rem, 4vw, 2.75rem);
+	margin-bottom: 0.85rem;
+}
+
+.csolve-close p {
+	color: var(--csolve-muted);
+	line-height: 1.7;
+	margin: 0 0 1.75rem;
+}
+
+.csolve-close .csolve-btn--ghost {
+	color: var(--csolve-ink);
+	border-color: rgba(11, 31, 36, 0.25);
+}
+
+.csolve-close .csolve-btn--ghost:hover {
+	border-color: var(--csolve-ink);
+	color: var(--csolve-ink);
+}
+
+/* ---------- Reveal motion ---------- */
+.reveal {
+	opacity: 0;
+	transform: translateY(28px);
+	transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.csolve-hero .reveal:nth-child(1) { transition-delay: 0.05s; }
+.csolve-hero .reveal:nth-child(2) { transition-delay: 0.18s; }
+.csolve-hero .reveal:nth-child(3) { transition-delay: 0.3s; }
+.csolve-hero .reveal:nth-child(4) { transition-delay: 0.42s; }
+
+@media (prefers-reduced-motion: reduce) {
+	.reveal {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+	.csolve-hero__grid,
+	.csolve-hero__scroll span {
+		animation: none;
+	}
+}
