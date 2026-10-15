@@ -1,0 +1,164 @@
+<?php
+/**
+ * UpdateUser.
+ * php version 5.6
+ *
+ * @category UpdateUser
+ * @package  SureTriggers
+ * @author   BSF <username@example.com>
+ * @license  https://www.gnu.org/licenses/gpl-3.0.html GPLv3
+ * @link     https://www.brainstormforce.com/
+ * @since    1.0.0
+ */
+
+namespace SureTriggers\Integrations\WordPress\Actions;
+
+use SureTriggers\Integrations\AutomateAction;
+use SureTriggers\Traits\SingletonLoader;
+use Exception;
+
+/**
+ * UpdateUser
+ *
+ * @category UpdateUser
+ * @package  SureTriggers
+ * @author   BSF <username@example.com>
+ * @license  https://www.gnu.org/licenses/gpl-3.0.html GPLv3
+ * @link     https://www.brainstormforce.com/
+ * @since    1.0.0
+ */
+class UpdateUser extends AutomateAction {
+
+	/**
+	 * Integration type.
+	 *
+	 * @var string
+	 */
+	public $integration = 'WordPress';
+
+	/**
+	 * Action name.
+	 *
+	 * @var string
+	 */
+	public $action = 'update_user';
+
+	use SingletonLoader;
+
+	/**
+	 * Register a action.
+	 *
+	 * @param array $actions actions.
+	 * @return array
+	 */
+	public function register( $actions ) {
+		$actions[ $this->integration ][ $this->action ] = [
+			'label'    => __( 'User: Update User Details', 'suretriggers' ),
+			'action'   => 'update_user',
+			'function' => [ $this, 'action_listener' ],
+		];
+		return $actions;
+	}
+
+	/**
+	 * Fields that this action is allowed to set via wp_update_user().
+	 *
+	 * Matches the fixed field list offered by the "User: Update User
+	 * Details" field picker (see
+	 * GlobalSearchController::search_user_field_options()). Deliberately
+	 * excludes `role` and any other key — `role` has no entry in that
+	 * picker and must never be settable through this generic key/value
+	 * list; changing a user's role has its own dedicated, capability
+	 * checked `change_role` action.
+	 *
+	 * @var string[]
+	 */
+	private $allowed_user_keys = [
+		'user_login',
+		'user_email',
+		'display_name',
+		'user_pass',
+		'user_url',
+	];
+
+	/**
+	 * Action listener.
+	 *
+	 * @param int   $user_id user_id.
+	 * @param int   $automation_id automation_id.
+	 * @param array $fields fields.
+	 * @param array $selected_options selectedOptions.
+	 * @return array
+	 */
+	public function _action_listener( $user_id, $automation_id, $fields, $selected_options ) {
+		global $wpdb;
+
+		$meta_array = [];
+
+		if ( empty( $selected_options['user_details'] ) || ! $user_id ) {
+			return [];
+		}
+
+		$meta_array['ID'] = $user_id;
+
+		foreach ( $selected_options['user_details'] as $meta ) {
+			$meta_key = $meta['user_key'];
+
+			if ( ! in_array( $meta_key, $this->allowed_user_keys, true ) ) {
+				continue;
+			}
+
+			$meta_value              = $meta['user_value'];
+			$meta_array[ $meta_key ] = $meta_value;
+
+			// User login and email.
+			if ( 'user_login' === $meta_key ) {
+				if ( ! empty( $meta_value ) ) {
+					if ( ! validate_username( $meta_value ) ) {
+						return [
+							'message' => sprintf( __( 'Invalid username: %1$s.', 'suretriggers' ), $meta_value ),
+						];
+					} else {
+						$user_id_has_this_id = username_exists( $meta_value );
+
+						if ( $user_id_has_this_id && $user_id_has_this_id !== $user_id ) {
+							return [
+								'message' => sprintf( __( 'Username "%1$s" already exists.', 'suretriggers' ), $meta_value ),
+							];
+						} else {
+							$wpdb->update( $wpdb->users, [ 'user_login' => $meta_value ], [ 'ID' => $user_id ] ); //phpcs:ignore
+						}
+					}
+				}
+			} elseif ( 'user_email' === $meta_key ) {
+				if ( ! empty( $meta_value ) ) {
+					if ( ! is_email( $meta_value ) ) {
+						return [
+							'message' => sprintf( __( 'Invalid email address: %1$s.', 'suretriggers' ), $meta_value ),
+						];
+					} else {
+
+						$user_id_has_email = email_exists( $meta_value );
+
+						if ( $user_id_has_email && $user_id_has_email !== $user_id ) {
+							return [
+								'message' => sprintf( __( 'Email address "%1$s" already exists.', 'suretriggers' ), $meta_value ),
+							];
+						} else {
+							$wpdb->update( $wpdb->users, [ 'user_email' => $meta_value ], [ 'ID' => $user_id ] ); //phpcs:ignore
+						}
+					}
+				}
+			}
+		}
+
+		wp_update_user( $meta_array );
+
+		unset( $meta_array['ID'] );
+		$meta_array['updated_user_ID'] = $user_id;
+
+		return $meta_array;
+	}
+}
+
+UpdateUser::get_instance();

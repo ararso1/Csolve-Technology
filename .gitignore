@@ -1,0 +1,29 @@
+# Environment / secrets
+.env
+.env.local
+.env.production
+.env.*.local
+wp-config-local.php
+
+# Logs & caches
+*.log
+wp-content/debug.log
+error_log
+wp-content/cache/
+wp-content/uploads/cache/
+wp-content/wflogs/
+wp-content/litespeed/
+wp-content/ai1wm-backups/
+wp-content/backups-dup-lite/
+wp-content/backup*/
+wp-content/upgrade/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Media — upload manually via cPanel File Manager / FTP (too large for GitHub)
+wp-content/uploads/
