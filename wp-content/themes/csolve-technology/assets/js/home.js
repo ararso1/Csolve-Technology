@@ -1,5 +1,5 @@
 /**
- * Csolve Technology homepage — reveal + counters.
+ * Csolve Technology homepage — carousel, reveal, counters.
  */
 (function () {
 	'use strict';
@@ -17,7 +17,6 @@
 			return;
 		}
 
-		// Hero content is above the fold — show immediately.
 		document.querySelectorAll('.csolve-hero [data-reveal]').forEach(function (el) {
 			el.classList.add('is-visible');
 		});
@@ -89,13 +88,106 @@
 		});
 	}
 
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', function () {
-			reveal();
-			counters();
+	function carousel() {
+		var root = document.querySelector('.csolve-hero');
+		if (!root) return;
+
+		var slides = Array.prototype.slice.call(root.querySelectorAll('.csolve-hero__slide'));
+		var dots = Array.prototype.slice.call(root.querySelectorAll('.csolve-hero__dot'));
+		var pauseBtn = root.querySelector('.csolve-hero__pause');
+		if (slides.length < 2) return;
+
+		var index = 0;
+		var timer = null;
+		var paused = false;
+		var interval = 5500;
+
+		function setActive(next) {
+			if (next === index) return;
+			var prev = index;
+			slides[prev].classList.remove('is-active');
+			slides[prev].classList.add('is-leaving');
+			slides[next].classList.add('is-active');
+			slides[next].classList.remove('is-leaving');
+
+			window.setTimeout(function () {
+				slides[prev].classList.remove('is-leaving');
+			}, 1100);
+
+			dots.forEach(function (dot, i) {
+				var on = i === next;
+				dot.classList.toggle('is-active', on);
+				dot.setAttribute('aria-selected', on ? 'true' : 'false');
+			});
+
+			index = next;
+		}
+
+		function nextSlide() {
+			setActive((index + 1) % slides.length);
+		}
+
+		function start() {
+			stop();
+			if (reduce || paused) return;
+			timer = window.setInterval(nextSlide, interval);
+		}
+
+		function stop() {
+			if (timer) {
+				window.clearInterval(timer);
+				timer = null;
+			}
+		}
+
+		dots.forEach(function (dot) {
+			dot.addEventListener('click', function () {
+				var goto = parseInt(dot.getAttribute('data-goto'), 10);
+				if (!isNaN(goto)) {
+					setActive(goto);
+					start();
+				}
+			});
 		});
-	} else {
+
+		if (pauseBtn) {
+			pauseBtn.addEventListener('click', function () {
+				paused = !paused;
+				pauseBtn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+				pauseBtn.querySelector('.csolve-hero__pause-label').textContent = paused ? 'Play' : 'Pause';
+				if (paused) {
+					stop();
+				} else {
+					start();
+				}
+			});
+		}
+
+		root.addEventListener('mouseenter', stop);
+		root.addEventListener('mouseleave', function () {
+			if (!paused) start();
+		});
+
+		document.addEventListener('visibilitychange', function () {
+			if (document.hidden) {
+				stop();
+			} else if (!paused) {
+				start();
+			}
+		});
+
+		start();
+	}
+
+	function boot() {
 		reveal();
 		counters();
+		carousel();
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', boot);
+	} else {
+		boot();
 	}
 })();

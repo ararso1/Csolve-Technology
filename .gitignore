@@ -28,7 +28,5 @@ Thumbs.db
 # Media — upload manually via cPanel File Manager / FTP (too large for GitHub)
 wp-content/uploads/
 
-# Server rewrite rules — keep local/cPanel copies only (use .htaccess.production as a template)
-.htaccess
-.htaccess.bk
-
+# Local-only large theme image copies (homepage uses uploads URLs)
+wp-content/themes/csolve-technology/assets/images/

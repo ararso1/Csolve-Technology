@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CSOLVE_THEME_VERSION', '1.0.2' );
+define( 'CSOLVE_THEME_VERSION', '1.1.0' );
 define( 'CSOLVE_THEME_DIR', get_stylesheet_directory() );
 define( 'CSOLVE_THEME_URI', get_stylesheet_directory_uri() );
 
@@ -54,6 +54,15 @@ function csolve_enqueue_assets() {
 			true
 		);
 	}
+
+	if ( is_page_template( 'page-company-profile.php' ) || is_page( array( 'company-profile', 'our-journey', 'achievements' ) ) ) {
+		wp_enqueue_style(
+			'csolve-pages',
+			CSOLVE_THEME_URI . '/assets/css/pages.css',
+			array( 'csolve-theme', 'csolve-fonts' ),
+			CSOLVE_THEME_VERSION
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'csolve_enqueue_assets', 15 );
 
@@ -67,6 +76,73 @@ function csolve_disable_page_title( $enabled ) {
 	return $enabled;
 }
 add_filter( 'astra_the_title_enabled', 'csolve_disable_page_title' );
+
+/**
+ * Ensure Company Profile pages exist after theme updates / deploy.
+ */
+function csolve_ensure_profile_pages() {
+	if ( get_option( 'csolve_profile_pages_v2' ) ) {
+		return;
+	}
+
+	$pages = array(
+		'company-profile' => array(
+			'title'   => 'Company Profile',
+			'excerpt' => 'An overview of Csolve Technology - who we are, what we build, and why we exist.',
+			'content' => '<h2>Company overview</h2><p>Csolve Technology is an African technology company dedicated to building practical digital systems, educating the next generation of talent, and strengthening institutions through innovation.</p><p>We design software, AI solutions, e-learning platforms, e-commerce experiences, and secure infrastructure - always with a focus on usefulness, inclusion, and lasting impact.</p><h2>What defines us</h2><ul><li><strong>Builders</strong> - we ship systems organizations can run and grow.</li><li><strong>Teachers</strong> - we train people with skills that open real opportunities.</li><li><strong>Partners</strong> - we work alongside communities, schools, startups, and enterprises.</li></ul><h2>Where we create value</h2><p>From custom platforms and consulting to digital literacy and community technology programs, Csolve Technology connects product excellence with social purpose.</p>',
+			'parent'  => 0,
+		),
+		'our-journey'     => array(
+			'title'   => 'Our Journey',
+			'excerpt' => 'The story of Csolve Technology: from practical digital solutions to community-scale impact.',
+			'content' => '<h2>From practical tech to community-scale impact</h2><p>Csolve Technology began with a clear goal: make technology work for African organizations and learners.</p><h3>Foundation</h3><p>Early work focused on useful software, digital consulting, and hands-on training.</p><h3>Growth through education</h3><p>We scaled e-learning and skills programs - helping tens of thousands of people build careers in the digital economy.</p><h3>Landmark community investment</h3><p>The Csolve Digital Library initiative in Mechara-Micheta marks a long-term commitment to knowledge access and youth opportunity.</p><h3>Today</h3><p>We deliver platforms for education and enterprise under one brand: <strong>Csolve Technology</strong>.</p>',
+			'parent'  => 'company-profile',
+		),
+		'achievements'    => array(
+			'title'   => 'Achievements',
+			'excerpt' => 'Milestones, scale, and results from Csolve Technology work across Africa.',
+			'content' => '<h2>Impact that compounds</h2><ul><li><strong>50,000+</strong> people reached through training</li><li><strong>600+</strong> active e-learners</li><li>Custom platforms for education and enterprise</li><li>AI, consulting, and infrastructure engagements</li><li>Community technology initiatives including the Csolve Digital Library vision</li></ul>',
+			'parent'  => 'company-profile',
+		),
+	);
+
+	$ids = array();
+	foreach ( $pages as $slug => $page ) {
+		$existing = get_page_by_path( $slug === 'company-profile' ? 'company-profile' : 'company-profile/' . $slug );
+		if ( $existing ) {
+			$ids[ $slug ] = (int) $existing->ID;
+			update_post_meta( $existing->ID, '_wp_page_template', 'page-company-profile.php' );
+			continue;
+		}
+
+		$parent_id = 0;
+		if ( ! empty( $page['parent'] ) && ! empty( $ids[ $page['parent'] ] ) ) {
+			$parent_id = $ids[ $page['parent'] ];
+		}
+
+		$id = wp_insert_post(
+			array(
+				'post_title'   => $page['title'],
+				'post_name'    => $slug,
+				'post_content' => $page['content'],
+				'post_excerpt' => $page['excerpt'],
+				'post_status'  => 'publish',
+				'post_type'    => 'page',
+				'post_parent'  => $parent_id,
+			),
+			true
+		);
+
+		if ( ! is_wp_error( $id ) ) {
+			$ids[ $slug ] = (int) $id;
+			update_post_meta( $id, '_wp_page_template', 'page-company-profile.php' );
+		}
+	}
+
+	update_option( 'csolve_profile_pages_v2', 1 );
+	flush_rewrite_rules( false );
+}
+add_action( 'init', 'csolve_ensure_profile_pages', 20 );
 
 /**
  * Prefer child theme front-page template over Elementor canvas for homepage.

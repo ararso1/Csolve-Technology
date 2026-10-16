@@ -74,37 +74,102 @@
 	min-height: 100dvh;
 	display: flex;
 	align-items: flex-end;
-	padding: 7rem 0 5rem;
+	padding: 7rem 0 5.5rem;
 	color: var(--csolve-white);
 	isolation: isolate;
+	overflow: hidden;
 }
 
-.csolve-hero__bg {
+.csolve-hero__carousel {
 	position: absolute;
 	inset: 0;
 	z-index: -2;
-	background:
-		radial-gradient(ellipse 80% 60% at 70% 20%, rgba(201, 133, 42, 0.28), transparent 55%),
-		radial-gradient(ellipse 70% 50% at 10% 80%, rgba(26, 92, 94, 0.55), transparent 50%),
-		linear-gradient(155deg, #061416 0%, var(--csolve-ink) 40%, var(--csolve-teal) 100%);
 }
 
-.csolve-hero__grid {
+.csolve-hero__slide {
 	position: absolute;
 	inset: 0;
-	z-index: -1;
-	opacity: 0.35;
-	background-image:
-		linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-		linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-	background-size: 64px 64px;
-	mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
-	animation: csolve-grid-drift 28s linear infinite;
+	background-color: var(--csolve-ink);
+	background-size: cover;
+	background-position: center center;
+	opacity: 0;
+	transform: scale(1.06);
+	transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1), transform 6.5s ease-out;
+	will-change: opacity, transform;
 }
 
-@keyframes csolve-grid-drift {
-	from { background-position: 0 0, 0 0; }
-	to { background-position: 64px 64px, 64px 64px; }
+.csolve-hero__slide.is-active {
+	opacity: 1;
+	transform: scale(1);
+	z-index: 1;
+}
+
+.csolve-hero__slide.is-leaving {
+	opacity: 0;
+	transform: scale(1.02);
+	z-index: 0;
+}
+
+.csolve-hero__veil {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	background:
+		linear-gradient(180deg, rgba(6, 20, 22, 0.55) 0%, rgba(6, 20, 22, 0.35) 35%, rgba(6, 20, 22, 0.82) 100%),
+		linear-gradient(90deg, rgba(6, 20, 22, 0.65) 0%, rgba(6, 20, 22, 0.2) 55%, rgba(11, 31, 36, 0.45) 100%);
+	pointer-events: none;
+}
+
+.csolve-hero__controls {
+	position: absolute;
+	right: max(1.25rem, calc((100% - var(--csolve-max)) / 2));
+	bottom: 5.5rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	z-index: 3;
+}
+
+.csolve-hero__dots {
+	display: flex;
+	gap: 0.45rem;
+}
+
+.csolve-hero__dot {
+	width: 2.25rem;
+	height: 3px;
+	padding: 0;
+	border: 0;
+	border-radius: 1px;
+	background: rgba(255, 255, 255, 0.35);
+	cursor: pointer;
+	transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.csolve-hero__dot.is-active {
+	background: var(--csolve-amber);
+	transform: scaleX(1.05);
+}
+
+.csolve-hero__pause {
+	appearance: none;
+	border: 1px solid rgba(255, 255, 255, 0.35);
+	background: transparent;
+	color: rgba(255, 255, 255, 0.85);
+	font-family: var(--csolve-font-body);
+	font-size: 0.7rem;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	padding: 0.4rem 0.65rem;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+.csolve-hero__pause:hover,
+.csolve-hero__pause[aria-pressed="true"] {
+	border-color: var(--csolve-amber);
+	color: var(--csolve-amber-bright);
 }
 
 .csolve-hero__inner {
@@ -208,6 +273,137 @@
 @keyframes csolve-scroll-pulse {
 	0%, 100% { opacity: 0.3; transform: translateY(0); }
 	50% { opacity: 1; transform: translateY(10px); }
+}
+
+/* ---------- Company profile ---------- */
+.csolve-profile {
+	padding: 6rem 0;
+	background: var(--csolve-white);
+}
+
+.csolve-profile__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2rem;
+	margin-bottom: 2.5rem;
+}
+
+@media (min-width: 900px) {
+	.csolve-profile__grid {
+		grid-template-columns: 1.4fr 0.9fr;
+		gap: 3rem;
+		align-items: start;
+	}
+}
+
+.csolve-profile__story h3 {
+	font-size: 1.65rem;
+	margin-bottom: 1rem;
+}
+
+.csolve-profile__story p {
+	color: var(--csolve-muted);
+	line-height: 1.75;
+	margin: 0 0 1rem;
+	font-size: 1rem;
+}
+
+.csolve-text-link {
+	display: inline-flex;
+	margin-top: 0.5rem;
+	font-weight: 600;
+	font-size: 0.92rem;
+	color: var(--csolve-teal-mid);
+	text-decoration: none;
+	border-bottom: 1px solid rgba(26, 92, 94, 0.35);
+	padding-bottom: 0.15rem;
+	transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.csolve-text-link:hover {
+	color: var(--csolve-amber);
+	border-color: var(--csolve-amber);
+}
+
+.csolve-profile__aside {
+	display: grid;
+	gap: 1rem;
+	padding: 1.75rem;
+	background: var(--csolve-ink);
+	color: var(--csolve-white);
+}
+
+.csolve-profile__fact {
+	display: grid;
+	gap: 0.25rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.csolve-profile__fact:last-of-type {
+	border-bottom: 0;
+	padding-bottom: 0.25rem;
+}
+
+.csolve-profile__fact-label {
+	font-size: 0.7rem;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--csolve-amber);
+}
+
+.csolve-profile__fact-value {
+	font-size: 0.98rem;
+	line-height: 1.5;
+	color: rgba(255, 255, 255, 0.88);
+}
+
+.csolve-btn--block {
+	width: 100%;
+	margin-top: 0.5rem;
+}
+
+.csolve-profile__links {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0.75rem;
+}
+
+@media (min-width: 700px) {
+	.csolve-profile__links {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+	}
+}
+
+.csolve-profile__link {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+	padding: 1.25rem 1.15rem;
+	text-decoration: none;
+	color: var(--csolve-ink);
+	background: var(--csolve-cream);
+	border-left: 3px solid var(--csolve-amber);
+	transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.csolve-profile__link:hover {
+	transform: translateY(-3px);
+	background: var(--csolve-sand);
+}
+
+.csolve-profile__link span {
+	font-family: var(--csolve-font-display);
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+
+.csolve-profile__link em {
+	font-style: normal;
+	font-size: 0.88rem;
+	color: var(--csolve-muted);
 }
 
 /* ---------- Mission / Vision ---------- */
@@ -439,6 +635,28 @@
 	color: rgba(255, 255, 255, 0.6);
 }
 
+.csolve-history__more {
+	margin: 2.5rem 0 0;
+}
+
+.csolve-history .csolve-btn--ghost {
+	color: var(--csolve-white);
+	border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* ---------- Legacy Elementor block ---------- */
+.csolve-legacy {
+	background: var(--csolve-white);
+	padding: 0 0 2rem;
+}
+
+/* Hide the original Elementor hero (duplicated by our brand hero). */
+.csolve-legacy .elementor > .elementor-section:first-child,
+.csolve-legacy .elementor > .e-con:first-child,
+.csolve-legacy .elementor > .elementor-top-section:first-child {
+	display: none !important;
+}
+
 /* ---------- Close CTA ---------- */
 .csolve-close {
 	padding: 6rem 0;
@@ -495,8 +713,19 @@
 		transform: none;
 		transition: none;
 	}
-	.csolve-hero__grid,
+	.csolve-hero__slide {
+		transition: opacity 0.01s linear;
+		transform: none !important;
+	}
 	.csolve-hero__scroll span {
 		animation: none;
+	}
+}
+
+@media (max-width: 700px) {
+	.csolve-hero__controls {
+		left: 1.25rem;
+		right: auto;
+		bottom: 4.25rem;
 	}
 }
