@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+/* Csolve Technology brand overrides */
+:root {
+  --theme: #00b1e7 !important;
+  --theme-2: #0099c9 !important;
+  --theme-3: #0a3d52 !important;
+  --theme-4: #e6f7fc !important;
+  --base: #00b1e7 !important;
+  --secondary: #fbbf23 !important;
+  --ratting: #fbbf23 !important;
+}
+
+/* Secondary accent on hover without removing template styles */
+.theme-btn:hover,
+.theme-btn.white-border:hover {
+  background-color: var(--secondary) !important;
+  border-color: var(--secondary) !important;
+  color: #101828 !important;
+}
+
+.footer-section .discussed-content h2 span {
+  color: var(--secondary) !important;
+}
+
+.sticky-logo img,
+.footer-logo img,
+.offcanvas__logo img {
+  max-height: 48px;
+  width: auto;
+  background: #fff;
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+/* One logo asset for all header states (skip white/black swap) */
+.header-1 .header-main .sticky-logo .logo-1,
+.header-6 .header-main .sticky-logo .logo-1,
+.sticky.header-1 .header-main .sticky-logo .logo-1,
+.sticky.header-6 .header-main .sticky-logo .logo-1 {
+  display: inline-block !important;
+}
+.header-1 .header-main .sticky-logo .logo-2,
+.header-6 .header-main .sticky-logo .logo-2,
+.sticky.header-1 .header-main .sticky-logo .logo-2,
+.sticky.header-6 .header-main .sticky-logo .logo-2 {
+  display: none !important;
+}
