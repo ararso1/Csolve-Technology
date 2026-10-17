@@ -46,3 +46,197 @@
 .sticky.header-6 .header-main .sticky-logo .logo-2 {
   display: none !important;
 }
+
+/* Full-bleed sliding hero */
+.hero-slider-section {
+  padding: 0 !important;
+  position: relative;
+}
+
+.hero-slider-section .hero-slider,
+.hero-slider-section .swiper-slide {
+  height: auto;
+}
+
+.hero-slide-bg {
+  min-height: 720px;
+  display: flex;
+  align-items: center;
+  padding: 160px 0 120px;
+  position: relative;
+}
+
+.hero-slide-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(10, 24, 40, 0.88) 0%,
+    rgba(10, 24, 40, 0.62) 48%,
+    rgba(10, 24, 40, 0.35) 100%
+  );
+  z-index: 0;
+}
+
+.hero-slide-bg .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-slider-section .hero-content {
+  max-width: 720px;
+}
+
+.hero-slider-section .hero-eyebrow {
+  display: inline-block;
+  color: var(--secondary);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.hero-slider-section .hero-content h1 {
+  color: #fff;
+  margin-bottom: 22px;
+  line-height: 1.12;
+}
+
+.hero-slider-section .hero-slide-text {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 540px;
+  margin-bottom: 36px;
+}
+
+.hero-slider-controls {
+  position: absolute;
+  left: 50%;
+  bottom: 36px;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.hero-array-prev,
+.hero-array-next {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(16, 24, 40, 0.35);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.hero-array-prev:hover,
+.hero-array-next:hover {
+  background: var(--theme);
+  border-color: var(--theme);
+}
+
+.hero-dot {
+  display: flex;
+  gap: 8px;
+}
+
+.hero-dot .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.45);
+  opacity: 1;
+}
+
+.hero-dot .swiper-pagination-bullet-active {
+  background: var(--secondary);
+  width: 28px;
+  border-radius: 999px;
+}
+
+@media (max-width: 991px) {
+  .hero-slide-bg {
+    min-height: 620px;
+    padding: 140px 0 110px;
+  }
+}
+
+@media (max-width: 575px) {
+  .hero-slide-bg {
+    min-height: 560px;
+    padding: 130px 0 100px;
+  }
+
+  .hero-slider-section .hero-slide-text {
+    font-size: 16px;
+  }
+}
+
+/* WOW.js must not permanently hide content/images (inline styles lose to this) */
+.wow {
+  visibility: visible !important;
+}
+
+/* Service highlight cards: keep image from covering title text */
+.service-section .service-items {
+  gap: 12px;
+  overflow: hidden;
+  min-height: 150px;
+  height: 100%;
+}
+
+.service-section .service-items .content {
+  flex: 1 1 auto;
+  min-width: 0;
+  position: relative;
+  z-index: 2;
+  padding-right: 12px;
+}
+
+.service-section .service-items .content h5 {
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.service-section .service-items .thumb {
+  flex: 0 0 110px;
+  width: 110px;
+  max-width: 110px;
+  height: 110px;
+  padding: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.service-section .service-items .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+@media (max-width: 575px) {
+  .service-section .service-items {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .service-section .service-items .thumb {
+    flex: none;
+    width: 100%;
+    max-width: none;
+    height: 180px;
+  }
+
+  .service-section .service-items .content {
+    padding: 16px 20px 20px;
+  }
+}

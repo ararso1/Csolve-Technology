@@ -13,8 +13,43 @@ export const nextUtility = {
   },
   scrollAnimation() {
     if (typeof window === "undefined") return;
-    window.WOW = require("wowjs");
-    new window.WOW.WOW({ live: false }).init();
+
+    const revealStuckWow = () => {
+      document.querySelectorAll(".wow").forEach((el) => {
+        if (getComputedStyle(el).visibility === "hidden") {
+          el.style.visibility = "visible";
+          el.classList.add("animated");
+        }
+      });
+    };
+
+    const startWow = () => {
+      try {
+        window.WOW = require("wowjs");
+        new window.WOW.WOW({
+          boxClass: "wow",
+          animateClass: "animated",
+          offset: 0,
+          mobile: true,
+          live: false,
+        }).init();
+      } catch (e) {
+        // If WOW fails, still show content
+        revealStuckWow();
+      }
+      // Failsafe: never leave sections permanently invisible
+      setTimeout(revealStuckWow, 1200);
+    };
+
+    // Wait until layout/preloader settle so box positions are correct
+    if (document.readyState === "complete") {
+      setTimeout(startWow, 300);
+    } else {
+      window.addEventListener("load", () => setTimeout(startWow, 300), {
+        once: true,
+      });
+      setTimeout(startWow, 2800);
+    }
   },
   preloader() {
     if (typeof window === "undefined") return;

@@ -35,7 +35,7 @@ const Footer1 = () => {
           </div>
           <div className="discussed-content wow fadeInUp" data-wow-delay=".5s">
             <h2>
-              Let’s Discussed About <span>Your Projects</span>
+              We Build More Than Systems — <span>Let’s Build Yours</span>
             </h2>
             <Link href="contact" className="theme-btn hover-white">
               Get Started <i className="far fa-arrow-right" />
@@ -54,9 +54,10 @@ const Footer1 = () => {
                 </div>
                 <div className="footer-content">
                   <p>
-                    Csolve Technology builds practical software, AI, education
-                    platforms, and digital infrastructure that empower people
-                    and organizations across Africa.
+                    We Build More Than Systems. Csolve Technology is an Ethiopian
+                    technology company delivering software, AI, infrastructure,
+                    and digital marketing for private businesses, government, and
+                    NGOs across East Africa.
                   </p>
                   <div className="social-icon d-flex align-items-center">
                     <a href="#">
@@ -746,7 +747,7 @@ const Footer6 = () => {
           </div>
           <div className="discussed-content wow fadeInUp" data-wow-delay=".5s">
             <h2>
-              Let’s Discussed About <span>Your Projects</span>
+              We Build More Than Systems — <span>Let’s Build Yours</span>
             </h2>
             <Link href="contact" className="theme-btn hover-white">
               Get Started <i className="far fa-arrow-right" />
@@ -765,8 +766,9 @@ const Footer6 = () => {
                 </div>
                 <div className="footer-content">
                   <p>
-                    Sed perspiciatis unde omnis natus doloremque laudantium
-                    totae
+                    We Build More Than Systems. Csolve Technology delivers
+                    practical software, AI, and digital infrastructure that
+                    empower people across Africa.
                   </p>
                   <div className="social-icon d-flex align-items-center">
                     <a href="#">

@@ -224,4 +224,22 @@ export const sliderProps = {
       disableOnInteraction: false,
     },
   },
+  heroSlider: {
+    loop: true,
+    speed: 1200,
+    effect: "fade",
+    fadeEffect: { crossFade: true },
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".hero-dot",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".hero-array-next",
+      prevEl: ".hero-array-prev",
+    },
+  },
 };

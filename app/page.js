@@ -1,118 +1,15 @@
 import FunFactCounter from "@/components/FunFactCounter";
+import HeroSlider from "@/components/HeroSlider";
 import Pricing from "@/components/Pricing";
 import { TestimonialSlider1 } from "@/components/TestimonialSlider";
+import { company, topServices } from "@/data/services";
 import NextLayout from "@/layouts/NextLayout";
 import Link from "next/link";
+
 const page = () => {
   return (
     <NextLayout header={1}>
-      <section
-        className="hero-section hero-1 bg-cover fix"
-        style={{ backgroundImage: 'url("/assets/img/hero/01.jpg")' }}
-      >
-        <div className="container">
-          <div className="row g-4 justify-content-between">
-            <div className="col-lg-6">
-              <div className="hero-content">
-                <h1 className="wow fadeInUp" data-wow-delay=".2s">
-                  We Build More <br />
-                  Than Systems — <br /> IT Solutions <br /> That Deliver
-                </h1>
-                <div className="hero-button">
-                  <Link
-                    href="/contact"
-                    className="theme-btn hover-white wow fadeInUp"
-                    data-wow-delay=".4s"
-                  >
-                    Get Started Now <i className="far fa-arrow-right" />
-                  </Link>
-                  <Link
-                    href="service"
-                    className="btn-link wow fadeInUp"
-                    data-wow-delay=".6s"
-                  >
-                    View Services <i className="far fa-arrow-right" />
-                  </Link>
-                </div>
-                <div
-                  className="hero-client d-flex align-items-center gap-4 mt-50 wow fadeInUp"
-                  data-wow-delay=".8s"
-                >
-                  <img src="/assets/img/hero/client.png" alt="img" />
-                  <p className="text-white">
-                    Empowering people &amp; organizations <br />
-                    across Africa
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-5 wow fadeInUp" data-wow-delay=".4s">
-              <div className="hero-contact-box">
-                <h4>Get Consultations</h4>
-                <p>Ready to start with Csolve Technology services</p>
-                <form
-                  action="#"
-                  id="contact-form"
-                  method="POST"
-                  className="contact-form-item"
-                >
-                  <div className="row g-4">
-                    <div className="col-lg-12">
-                      <div className="form-clt">
-                        <input
-                          type="text"
-                          name="name"
-                          id="name"
-                          placeholder="Your Name"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-12">
-                      <div className="form-clt">
-                        <input
-                          type="text"
-                          name="email"
-                          id="email"
-                          placeholder="Email Address"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-12">
-                      <div className="form-clt">
-                        <input
-                          type="text"
-                          name="phone"
-                          id="phone"
-                          placeholder="Phone Number"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-12">
-                      <div className="payment-save">
-                        <input
-                          type="checkbox"
-                          className="form-check-input"
-                          name="save-for-next"
-                          id="saveForNext"
-                        />
-                        <p>
-                          I’ve Read and agreed to{" "}
-                          <Link href="/">Terms &amp; Conditions</Link>
-                        </p>
-                      </div>
-                    </div>
-                    <div className="col-lg-12">
-                      <button type="submit" className="theme-btn">
-                        Get Started Now <i className="far fa-arrow-right" />
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSlider />
       {/* Service Section Start */}
       <section className="service-section fix pt-80 pb-80 section-bg">
         <div className="container">
@@ -120,75 +17,36 @@ const page = () => {
             className="mb-5 text-white text-center wow fadeInUp"
             data-wow-delay=".3s"
           >
-            Preparing For Your Business Success With Csolve Technology
+            We Build More Than Systems — Preparing Your Business For Success
           </h4>
           <div className="row g-4">
-            <div
-              className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
-              data-wow-delay=".3s"
-            >
-              <div className="service-items">
-                <div className="content">
-                  <p>01</p>
-                  <h5>
-                    <Link href="service-details">
-                      Data Manage &amp; <br />
-                      Solutions Center
+            {topServices.map((service, index) => (
+              <div
+                key={service.slug}
+                className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp"
+                data-wow-delay={`${0.3 + index * 0.2}s`}
+              >
+                <div className="service-items">
+                  <div className="content">
+                    <p>{service.number}</p>
+                    <h5>
+                      <Link href={`/service-details/${service.slug}`}>
+                        {service.shortTitle}
+                      </Link>
+                    </h5>
+                    <Link
+                      className="arrow-btn"
+                      href={`/service-details/${service.slug}`}
+                    >
+                      <i className="far fa-arrow-right" />
                     </Link>
-                  </h5>
-                  <Link className="arrow-btn" href="service-details">
-                    <i className="far fa-arrow-right" />
-                  </Link>
-                </div>
-                <div className="thumb">
-                  <img src="/assets/img/service/01.jpg" alt="img" />
+                  </div>
+                  <div className="thumb">
+                    <img src={service.image} alt={service.title} />
+                  </div>
                 </div>
               </div>
-            </div>
-            <div
-              className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
-              data-wow-delay=".5s"
-            >
-              <div className="service-items">
-                <div className="content">
-                  <p>02</p>
-                  <h5>
-                    <Link href="service-details">
-                      Preparing For <br />
-                      Cloud Services
-                    </Link>
-                  </h5>
-                  <Link className="arrow-btn" href="service-details">
-                    <i className="far fa-arrow-right" />
-                  </Link>
-                </div>
-                <div className="thumb">
-                  <img src="/assets/img/service/02.jpg" alt="img" />
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
-              data-wow-delay=".7s"
-            >
-              <div className="service-items">
-                <div className="content">
-                  <p>03</p>
-                  <h5>
-                    <Link href="service-details">
-                      Machine Learning <br />
-                      &amp; Development
-                    </Link>
-                  </h5>
-                  <Link className="arrow-btn" href="service-details">
-                    <i className="far fa-arrow-right" />
-                  </Link>
-                </div>
-                <div className="thumb">
-                  <img src="/assets/img/service/03.jpg" alt="img" />
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -203,11 +61,11 @@ const page = () => {
                     className="experience-text wow fadeInUp"
                     data-wow-delay=".6s"
                   >
-                    <li>25+ Years Of Experience</li>
+                    <li>Serving Ethiopia &amp; East Africa</li>
                     <li>
                       <i className="fas fa-star" />
                     </li>
-                    <li>Awards Winning Company</li>
+                    <li>We Build More Than Systems</li>
                   </ul>
                   <div className="row g-4 align-items-center">
                     <div className="col-md-6 wow fadeInUp" data-wow-delay=".2s">
@@ -228,30 +86,22 @@ const page = () => {
                   <div className="section-title">
                     <span className="sub-content wow fadeInUp">
                       <img src="/assets/img/bale.png" alt="img" />
-                      About Csolve Technology
+                      {company.motto}
                     </span>
                     <h2 className="wow fadeInUp" data-wow-delay=".3s">
-                      Preparing Your Success With Trusted IT Services
+                      A Trusted Technology Partner Across East Africa
                     </h2>
                   </div>
                   <p className="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".5s">
-                    Csolve Technology designs practical software, AI, e-learning,
-                    and digital infrastructure that solve real challenges and
-                    strengthen institutions across Africa.
+                    {company.about[0]}
                   </p>
                   <ul className="about-list wow fadeInUp" data-wow-delay=".3s">
-                    <li>
-                      <i className="fas fa-check" />
-                      Connect with leads with zero hassle.
-                    </li>
-                    <li>
-                      <i className="fas fa-check" />
-                      Take quick payments direct from meetings
-                    </li>
-                    <li>
-                      <i className="fas fa-check" />
-                      Start finding leads that get coverts quickly
-                    </li>
+                    {company.clients.slice(0, 3).map((client) => (
+                      <li key={client}>
+                        <i className="fas fa-check" />
+                        {client}
+                      </li>
+                    ))}
                   </ul>
                   <div
                     className="about-author wow fadeInUp"
@@ -259,7 +109,7 @@ const page = () => {
                   >
                     <div className="about-button">
                       <Link href="about" className="theme-btn">
-                        Learn More Us
+                        Learn More About Us
                         <i className="far fa-arrow-right" />
                       </Link>
                     </div>
@@ -287,111 +137,46 @@ const page = () => {
               Popular Services
             </span>
             <h2 className="wow fadeInUp" data-wow-delay=".3s">
-              We Provide Best Quality Service <br />
-              For Your Digital Growth
+              We Build More Than Systems — <br />
+              Services Built For Real Impact
             </h2>
           </div>
           <div className="row">
-            <div
-              className="col-xxl-3 col-xl-4 col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay=".2s"
-            >
-              <div className="service-card-items">
-                <div className="icon">
-                  <i className="flaticon-technical" />
-                </div>
-                <h3>
-                  <Link href="service-details">
-                    Data Center and Cloud Services
-                  </Link>
-                </h3>
-                <div className="service-thumb">
-                  <img src="/assets/img/service/04.png" alt="service-img" />
-                  <div className="line-shape">
-                    <img src="/assets/img/service/line.png" alt="shape-img" />
+            {topServices.map((service, index) => (
+              <div
+                key={service.slug}
+                className="col-xxl-3 col-xl-4 col-lg-4 col-md-6 wow fadeInUp"
+                data-wow-delay={`${0.2 + index * 0.2}s`}
+              >
+                <div
+                  className={`service-card-items${
+                    index === 1 ? " active" : ""
+                  }`}
+                >
+                  <div className="icon">
+                    <i className={service.icon} />
                   </div>
-                </div>
-                <Link className="link-btn" href="service-details">
-                  Read More
-                  <i className="far fa-arrow-right" />
-                </Link>
-              </div>
-            </div>
-            <div
-              className="col-xxl-3 col-xl-4 col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay=".4s"
-            >
-              <div className="service-card-items active">
-                <div className="icon">
-                  <i className="flaticon-vector-design" />
-                </div>
-                <h3>
-                  <Link href="service-details">
-                    Web Development Software Renew
-                  </Link>
-                </h3>
-                <div className="service-thumb">
-                  <img src="/assets/img/service/05.png" alt="service-img" />
-                  <div className="line-shape">
-                    <img src="/assets/img/service/line.png" alt="shape-img" />
+                  <h3>
+                    <Link href={`/service-details/${service.slug}`}>
+                      {service.title}
+                    </Link>
+                  </h3>
+                  <div className="service-thumb">
+                    <img src={service.thumb} alt={service.title} />
+                    <div className="line-shape">
+                      <img src="/assets/img/service/line.png" alt="shape-img" />
+                    </div>
                   </div>
-                </div>
-                <Link className="link-btn" href="service-details">
-                  Read More
-                  <i className="far fa-arrow-right" />
-                </Link>
-              </div>
-            </div>
-            <div
-              className="col-xxl-3 col-xl-4 col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay=".6s"
-            >
-              <div className="service-card-items">
-                <div className="icon">
-                  <i className="flaticon-database" />
-                </div>
-                <h3>
-                  <Link href="service-details">
-                    IT Management Machine Learning
+                  <Link
+                    className="link-btn"
+                    href={`/service-details/${service.slug}`}
+                  >
+                    Read More
+                    <i className="far fa-arrow-right" />
                   </Link>
-                </h3>
-                <div className="service-thumb">
-                  <img src="/assets/img/service/06.png" alt="service-img" />
-                  <div className="line-shape">
-                    <img src="/assets/img/service/line.png" alt="shape-img" />
-                  </div>
                 </div>
-                <Link className="link-btn" href="service-details">
-                  Read More
-                  <i className="far fa-arrow-right" />
-                </Link>
               </div>
-            </div>
-            <div
-              className="col-xxl-3 col-xl-4 col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay=".8s"
-            >
-              <div className="service-card-items">
-                <div className="icon">
-                  <i className="flaticon-design-thinking" />
-                </div>
-                <h3>
-                  <Link href="service-details">
-                    Digital Product UI/UX Design
-                  </Link>
-                </h3>
-                <div className="service-thumb">
-                  <img src="/assets/img/service/07.png" alt="service-img" />
-                  <div className="line-shape">
-                    <img src="/assets/img/service/line.png" alt="shape-img" />
-                  </div>
-                </div>
-                <Link className="link-btn" href="service-details">
-                  Read More
-                  <i className="far fa-arrow-right" />
-                </Link>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

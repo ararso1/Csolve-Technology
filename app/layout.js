@@ -10,9 +10,9 @@ import "./globals.css";
 import Preloader from "@/layouts/Preloader";
 
 export const metadata = {
-  title: "Csolve Technology | IT Solutions, Software & Digital Innovation",
+  title: "Csolve Technology | We Build More Than Systems",
   description:
-    "Csolve Technology builds practical software, AI, e-learning, and digital infrastructure that empower people and organizations across Africa.",
+    "We Build More Than Systems — Csolve Technology delivers practical software, AI, e-learning, and digital infrastructure that empower people and organizations across Africa.",
   icons: {
     icon: [{ url: "/assets/img/csolve-icon.png", type: "image/png" }],
     shortcut: "/assets/img/csolve-icon.png",

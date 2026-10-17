@@ -3,14 +3,14 @@ import FunFactCounter from "@/components/FunFactCounter";
 import Team from "@/components/Team";
 import { TestimonialSlider2 } from "@/components/TestimonialSlider";
 import { WorkingProcess2 } from "@/components/WorkingProcess";
+import { company } from "@/data/services";
 import NextLayout from "@/layouts/NextLayout";
 import Link from "next/link";
+
 const page = () => {
   return (
     <NextLayout>
-      {/*<< Breadcrumb Section Start >>*/}
-      <Breadcrumb />
-      {/* About Section Start */}
+      <Breadcrumb pageName="About Us" pageTitle={company.motto} />
       <section className="about-section fix section-padding pb-0">
         <div className="container">
           <div className="about-wrapper style-2">
@@ -20,28 +20,23 @@ const page = () => {
                   <div className="section-title">
                     <span className="sub-content wow fadeInUp">
                       <img src="/assets/img/bale.png" alt="img" />
-                      About Company
+                      About Csolve Technology
                     </span>
                     <h2 className="wow fadeInUp" data-wow-delay=".3s">
-                      We Increase Your Website Lead and Grow Sales
+                      {company.motto}
                     </h2>
                   </div>
-                  <p className="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".5s">
-                    Sed ut perspiciatis unde omnis iste natus error voluptatem
-                    accusantium doloremque laudantium, totam rem aperiam, eaque
-                    ipsa quae
-                  </p>
-                  <div className="icon-items wow fadeInUp" data-wow-delay=".3s">
-                    <div className="dot" />
-                    <div className="content">
-                      <h4>Superior Quality Of Work</h4>
-                      <p>
-                        Our attention to detail and quality is unmatched in the
-                        industry. <br /> We’re not just a resource provider but
-                        also a key
-                      </p>
-                    </div>
-                  </div>
+                  {company.about.map((paragraph, index) => (
+                    <p
+                      key={paragraph}
+                      className={`${
+                        index === 0 ? "mt-3 mt-md-0" : "mt-3"
+                      } wow fadeInUp`}
+                      data-wow-delay={index === 0 ? ".5s" : ".6s"}
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
                 </div>
               </div>
               <div className="col-lg-6 wow fadeInUp" data-wow-delay=".4s">
@@ -53,44 +48,31 @@ const page = () => {
           </div>
         </div>
       </section>
-      {/* About Section Start */}
+
       <section className="about-section fix section-padding pt-80">
         <div className="container">
           <div className="about-wrapper style-2">
-            <div className="row g-4 align-items-center">
-              <div className="col-lg-6 wow  fadeInUp" data-wow-delay=".3s">
-                <div className="about-image-3">
-                  <img src="/assets/img/about/06.jpg" alt="img" />
+            <div className="row g-4">
+              <div className="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
+                <div className="about-content">
+                  <span className="sub-content">
+                    <img src="/assets/img/bale.png" alt="img" />
+                    Our Vision
+                  </span>
+                  <h3 className="mt-3">Building Africa’s Multi-Sector Future</h3>
+                  <p className="mt-3">{company.vision}</p>
                 </div>
               </div>
-              <div className="col-lg-6">
+              <div className="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
                 <div className="about-content">
-                  <h4 className="wow fadeInUp" data-wow-delay=".3s">
-                    Flexible Scaling &amp; Support
-                  </h4>
-                  <p className="mt-3 wow fadeInUp" data-wow-delay=".5s">
-                    In the early years, our dedicated team worked tirelessly to
-                    key Next milestones or achievements, such as product
-                    launches, partnerships or expansions these efforts laid the
-                    foundation
-                  </p>
-                  <div className="icon-items wow fadeInUp" data-wow-delay=".3s">
-                    <div className="dot" />
-                    <div className="content">
-                      <h4>Flexible Scaling &amp; Support</h4>
-                      <p>
-                        Our attention to detail and quality is unmatched in the
-                        industry. <br /> We’re not just a resource provider but
-                        also a key
-                      </p>
-                    </div>
-                  </div>
-                  <Link
-                    href="about"
-                    className="theme-btn mt-50 wow fadeInUp"
-                    data-wow-delay=".5s"
-                  >
-                    Learn More Us
+                  <span className="sub-content">
+                    <img src="/assets/img/bale.png" alt="img" />
+                    Our Mission
+                  </span>
+                  <h3 className="mt-3">Solving Real Problems Through Technology</h3>
+                  <p className="mt-3">{company.mission}</p>
+                  <Link href="contact" className="theme-btn mt-40">
+                    Partner With Csolve
                     <i className="far fa-arrow-right" />
                   </Link>
                 </div>
@@ -99,17 +81,84 @@ const page = () => {
           </div>
         </div>
       </section>
-      {/* Team Section Start */}
+
+      <section className="service-section section-padding pt-0">
+        <div className="container">
+          <div className="section-title text-center">
+            <span className="sub-content wow fadeInUp">
+              <img src="/assets/img/bale.png" alt="img" />
+              Our Values
+            </span>
+            <h2 className="wow fadeInUp" data-wow-delay=".3s">
+              Principles That Guide How We Build
+            </h2>
+          </div>
+          <div className="row g-4">
+            {company.values.map((value, index) => (
+              <div
+                key={value.title}
+                className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp"
+                data-wow-delay={`${0.2 + index * 0.1}s`}
+              >
+                <div className="service-card-items h-100">
+                  <h3>{value.title}</h3>
+                  <p>{value.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="about-section fix section-padding pt-0">
+        <div className="container">
+          <div className="about-wrapper style-2">
+            <div className="row g-4 align-items-center">
+              <div className="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
+                <div className="about-image-3">
+                  <img src="/assets/img/about/06.jpg" alt="img" />
+                </div>
+              </div>
+              <div className="col-lg-6">
+                <div className="about-content">
+                  <h4 className="wow fadeInUp" data-wow-delay=".3s">
+                    Who We Serve
+                  </h4>
+                  <p className="mt-3 wow fadeInUp" data-wow-delay=".5s">
+                    We position Csolve Technology as a trusted technology partner
+                    for organizations seeking reliable digital solutions and
+                    long-term growth across Ethiopia and East Africa.
+                  </p>
+                  <ul className="about-list wow fadeInUp" data-wow-delay=".3s">
+                    {company.clients.map((client) => (
+                      <li key={client}>
+                        <i className="fas fa-check" />
+                        {client}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href="service"
+                    className="theme-btn mt-50 wow fadeInUp"
+                    data-wow-delay=".5s"
+                  >
+                    Explore Our Services
+                    <i className="far fa-arrow-right" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Team />
-      {/* Funfact Section Start */}
       <section className="funfact-section-2 section-padding pt-0">
         <div className="container">
           <FunFactCounter style={2} />
         </div>
       </section>
-      {/* Working Process Section Start */}
       <WorkingProcess2 />
-      {/* Brand Section Start */}
       <section className="brand-section-2 mt-0 mb-0 fix section-padding pt-0">
         <div className="container-fluid">
           <div className="brand-wrapper-2">
@@ -120,57 +169,12 @@ const page = () => {
               <img src="/assets/img/brand/radius-right.png" alt="shape-img" />
             </div>
             <h5 className="wow fadeInUp" data-wow-delay=".3s">
-              We Have <span>1563+</span> Global Partners. Explore Our Global
-              Clients
+              Trusted Partner For Digital Transformation Across East Africa
             </h5>
-            <div className="brand-items">
-              <div className="brand-image wow fadeInUp" data-wow-delay=".2s">
-                <img src="/assets/img/brand/linkedIn.png" alt="img" />
-              </div>
-              <div className="brand-image wow fadeInUp" data-wow-delay=".4s">
-                <img src="/assets/img/brand/dropbox.png" alt="img" />
-              </div>
-              <div className="brand-image wow fadeInUp" data-wow-delay=".6s">
-                <img src="/assets/img/brand/trello.png" alt="img" />
-              </div>
-              <div className="brand-image wow fadeInUp" data-wow-delay=".8s">
-                <img src="/assets/img/brand/framer.png" alt="img" />
-              </div>
-            </div>
-            <div className="brand-items">
-              <div className="brand-image wow fadeInUp" data-wow-delay=".2s">
-                <img src="/assets/img/brand/grammarly.png" alt="img" />
-              </div>
-              <div className="brand-image wow fadeInUp" data-wow-delay=".4s">
-                <img src="/assets/img/brand/amazon.png" alt="img" />
-              </div>
-              <div className="brand-image wow fadeInUp" data-wow-delay=".6s">
-                <img src="/assets/img/brand/outbrain.png" alt="img" />
-              </div>
-              <div className="brand-image wow fadeInUp" data-wow-delay=".8s">
-                <img src="/assets/img/brand/shopify.png" alt="img" />
-              </div>
-            </div>
           </div>
         </div>
       </section>
-      {/* Testimonial Section Start */}
-      <section className="testimonial-section-2 fix section-padding fix">
-        <div className="bg-shape">
-          <img src="/assets/img/testimonial/bg-shape.png" alt="shape-img" />
-        </div>
-        <div className="container">
-          <div className="section-title text-center">
-            <span className="sub-content">
-              <img src="/assets/img/bale.png" alt="img" />
-              Clients Feedback
-            </span>
-            <h2>We’ve 1250+ Global Clients Say Us</h2>
-          </div>
-        </div>
-        <TestimonialSlider2 />
-      </section>
-      {/* Footer Section Start */}
+      <TestimonialSlider2 />
     </NextLayout>
   );
 };

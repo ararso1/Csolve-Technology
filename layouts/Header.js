@@ -58,16 +58,52 @@ const Menu = ({ single, menu }) => {
               <Link href="about">About</Link>
             </li>
             <li>
-              <Link href="service-details">
+              <Link href="service">
                 Services
                 <i className="fas fa-angle-down" />
               </Link>
               <ul className="submenu">
                 <li>
-                  <Link href="service">Services</Link>
+                  <Link href="service">All Services</Link>
                 </li>
                 <li>
-                  <Link href="service-details">Service Details</Link>
+                  <Link href="service-details/software-development">
+                    Software Development
+                  </Link>
+                </li>
+                <li>
+                  <Link href="service-details/website-development">
+                    Website Development
+                  </Link>
+                </li>
+                <li>
+                  <Link href="service-details/mobile-app-development">
+                    Mobile App Development
+                  </Link>
+                </li>
+                <li>
+                  <Link href="service-details/erp-solutions">ERP Solutions</Link>
+                </li>
+                <li>
+                  <Link href="service-details/ai-solutions">AI Solutions</Link>
+                </li>
+                <li>
+                  <Link href="service-details/networking-it-infrastructure">
+                    Networking &amp; Infrastructure
+                  </Link>
+                </li>
+                <li>
+                  <Link href="service-details/digital-marketing">
+                    Digital Marketing
+                  </Link>
+                </li>
+                <li>
+                  <Link href="service-details/social-media-management">
+                    Social Media Management
+                  </Link>
+                </li>
+                <li>
+                  <Link href="service-details/cybersecurity">Cybersecurity</Link>
                 </li>
               </ul>
             </li>
@@ -191,10 +227,37 @@ const MobileMenu = ({ single, menu }) => {
                   </a>
                   <ul className="submenu" style={activeLi("Services")}>
                     <li>
-                      <Link href="service">Services</Link>
+                      <Link href="service">All Services</Link>
                     </li>
                     <li>
-                      <Link href="service-details">Service Details</Link>
+                      <Link href="service-details/software-development">
+                        Software Development
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="service-details/website-development">
+                        Website Development
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="service-details/mobile-app-development">
+                        Mobile App Development
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="service-details/erp-solutions">
+                        ERP Solutions
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="service-details/ai-solutions">
+                        AI Solutions
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="service-details/cybersecurity">
+                        Cybersecurity
+                      </Link>
                     </li>
                   </ul>
                   <a

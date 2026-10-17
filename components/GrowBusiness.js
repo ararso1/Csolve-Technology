@@ -27,17 +27,17 @@ const GrowBusiness = ({ paddingTop = 0 }) => {
                 <div className="section-title">
                   <span className="sub-content wow fadeInUp">
                     <img src="/assets/img/bale.png" alt="img" />
-                    Grow your Business
+                    We Build More Than Systems
                   </span>
                   <h2 className="wow fadeInUp" data-wow-delay=".3s">
-                    Innovative Business Increase and Branding Solutions
+                    Digital Solutions That Improve Efficiency And Accelerate Growth
                   </h2>
                 </div>
                 <p className="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".5s">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam, eaque
-                  ipsa quae ab illo inventore veritatis et quasi architecto
-                  beatae vitae dicta.
+                  Csolve Technology helps private businesses, government
+                  institutions, and NGOs across Ethiopia and East Africa solve
+                  real problems with software, AI, infrastructure, and digital
+                  marketing that create lasting value.
                 </p>
                 <div className="grow-counting-area">
                   <div
