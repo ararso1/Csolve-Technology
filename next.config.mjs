@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Keep builds working on low-limit cPanel / shared hosts
+  // Limit compile workers for cPanel / shared hosting (avoids EAGAIN).
+  // Do NOT set workerThreads: false — it can crash SWC/rayon with:
+  // GlobalPoolAlreadyInitialized
   experimental: {
     cpus: 1,
-    workerThreads: false,
   },
 };
 
