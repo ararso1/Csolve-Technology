@@ -25,6 +25,27 @@ export const sliderProps = {
       clickable: true,
     },
   },
+  homeTestimonialSlider: {
+    spaceBetween: 28,
+    speed: 1200,
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".home-dot",
+      clickable: true,
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+    },
+  },
   testimonialSlider2: {
     spaceBetween: 30,
     speed: 1500,

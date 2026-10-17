@@ -1,68 +1,64 @@
 import Counter from "./Counter";
+
 const FunFactCounter = ({ style }) => {
+  const facts = [
+    {
+      end: 300,
+      suffix: "+",
+      title: "Websites & Apps",
+      text: "Digital products delivered for businesses, institutions, and growing organizations.",
+      delay: ".2s",
+    },
+    {
+      end: 30,
+      suffix: "+",
+      title: "Corporate Systems",
+      text: "Enterprise platforms and systems built to improve operations and decision-making.",
+      delay: ".4s",
+      active: true,
+    },
+    {
+      end: 1000,
+      suffix: "+",
+      title: "Job Opportunities For Youth",
+      text: "Opportunities created to empower young talent through technology and growth.",
+      delay: ".6s",
+    },
+    {
+      end: 101,
+      suffix: "%",
+      title: "Excellence",
+      text: "Our commitment to quality, reliability, and going beyond expectations.",
+      delay: ".8s",
+    },
+  ];
+
   return (
     <div className="row">
-      <div
-        className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-        data-wow-delay=".2s"
-      >
-        <div className={`funfact-box-items style-${style}`}>
-          <h2>
-            <span className="count">
-              <Counter end={98} />
-            </span>
-            %
-          </h2>
-          <h6>Average Conversion Rate</h6>
-          <p>Sed perspiciatis unde omnis este natus sit volupta</p>
+      {facts.map((fact) => (
+        <div
+          key={fact.title}
+          className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
+          data-wow-delay={fact.delay}
+        >
+          <div
+            className={`funfact-box-items${
+              fact.active ? " active" : ` style-${style || ""}`
+            }`}
+          >
+            <h2>
+              <span className="count">
+                <Counter end={fact.end} />
+              </span>
+              {fact.suffix}
+            </h2>
+            <h6>{fact.title}</h6>
+            <p>{fact.text}</p>
+          </div>
         </div>
-      </div>
-      <div
-        className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-        data-wow-delay=".4s"
-      >
-        <div className={`funfact-box-items active`}>
-          <h2>
-            <span className="count">
-              <Counter end={35} />
-            </span>
-            m+
-          </h2>
-          <h6>Traffic Generated</h6>
-          <p>Sed perspiciatis unde omnis este natus sit volupta</p>
-        </div>
-      </div>
-      <div
-        className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-        data-wow-delay=".6s"
-      >
-        <div className={`funfact-box-items style-${style}`}>
-          <h2>
-            <span className="count">
-              <Counter end={97} />
-            </span>
-            %
-          </h2>
-          <h6>Positive Customer Review</h6>
-          <p>Sed perspiciatis unde omnis este natus sit volupta</p>
-        </div>
-      </div>
-      <div
-        className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-        data-wow-delay=".8s"
-      >
-        <div className={`funfact-box-items style-${style}`}>
-          <h2>
-            <span className="count">
-              <Counter end={92} />
-            </span>
-            %
-          </h2>
-          <h6>Professional Team Members</h6>
-          <p>Sed perspiciatis unde omnis este natus sit volupta</p>
-        </div>
-      </div>
+      ))}
     </div>
   );
 };
+
 export default FunFactCounter;

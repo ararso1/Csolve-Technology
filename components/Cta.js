@@ -11,12 +11,13 @@ const Cta = ({ sectionPadding = false }) => {
         <div className="cta-marketing-wrapper">
           <div className="content">
             <h2 className="text-white wow fadeInUp" data-wow-delay=".3s">
-              Ready to Boost your Digital <br />
-              product marketing ?
+              Ready to Build More Than <br />
+              Systems With Csolve?
             </h2>
             <p className="text-white wow fadeInUp" data-wow-delay=".5s">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem{" "}
-              <br /> accusantium doloremque laudantium, totam rem
+              Partner with us for software, AI, ERP, cybersecurity, and digital
+              solutions that help private businesses, government, and NGOs grow
+              with confidence.
             </p>
           </div>
           <div className="thumb wow fadeInUp" data-wow-delay=".6s">
@@ -26,11 +27,11 @@ const Cta = ({ sectionPadding = false }) => {
             </div>
           </div>
           <Link
-            href="about"
+            href="contact"
             className="theme-btn bg-2 wow fadeInUp"
             data-wow-delay=".7s"
           >
-            Discover More <i className="far fa-arrow-right" />
+            Get Started <i className="far fa-arrow-right" />
           </Link>
         </div>
       </div>

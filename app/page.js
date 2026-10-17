@@ -1,12 +1,17 @@
+import CommunityImpact from "@/components/CommunityImpact";
 import FunFactCounter from "@/components/FunFactCounter";
 import HeroSlider from "@/components/HeroSlider";
-import Pricing from "@/components/Pricing";
-import { TestimonialSlider1 } from "@/components/TestimonialSlider";
+import HomeTestimonials from "@/components/HomeTestimonials";
+import { getRecentPosts } from "@/data/blog";
+import OurWorks from "@/components/OurWorks";
 import { company, topServices } from "@/data/services";
+import { teamMembers } from "@/data/team";
 import NextLayout from "@/layouts/NextLayout";
 import Link from "next/link";
 
 const page = () => {
+  const latestPosts = getRecentPosts(3);
+
   return (
     <NextLayout header={1}>
       <HeroSlider />
@@ -21,29 +26,29 @@ const page = () => {
           </h4>
           <div className="row g-4">
             {topServices.map((service, index) => (
-              <div
+            <div
                 key={service.slug}
                 className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp"
                 data-wow-delay={`${0.3 + index * 0.2}s`}
-              >
-                <div className="service-items">
-                  <div className="content">
+            >
+              <div className="service-items">
+                <div className="content">
                     <p>{service.number}</p>
-                    <h5>
+                  <h5>
                       <Link href={`/service-details/${service.slug}`}>
                         {service.shortTitle}
-                      </Link>
-                    </h5>
+                    </Link>
+                  </h5>
                     <Link
                       className="arrow-btn"
                       href={`/service-details/${service.slug}`}
                     >
-                      <i className="far fa-arrow-right" />
-                    </Link>
-                  </div>
-                  <div className="thumb">
+                    <i className="far fa-arrow-right" />
+                  </Link>
+                </div>
+                <div className="thumb">
                     <img src={service.image} alt={service.title} />
-                  </div>
+                </div>
                 </div>
               </div>
             ))}
@@ -65,7 +70,7 @@ const page = () => {
                     <li>
                       <i className="fas fa-star" />
                     </li>
-                    <li>We Build More Than Systems</li>
+                    <li>We Build More Than Systems 6+ Years</li>
                   </ul>
                   <div className="row g-4 align-items-center">
                     <div className="col-md-6 wow fadeInUp" data-wow-delay=".2s">
@@ -98,9 +103,9 @@ const page = () => {
                   <ul className="about-list wow fadeInUp" data-wow-delay=".3s">
                     {company.clients.slice(0, 3).map((client) => (
                       <li key={client}>
-                        <i className="fas fa-check" />
+                      <i className="fas fa-check" />
                         {client}
-                      </li>
+                    </li>
                     ))}
                   </ul>
                   <div
@@ -112,14 +117,6 @@ const page = () => {
                         Learn More About Us
                         <i className="far fa-arrow-right" />
                       </Link>
-                    </div>
-                    <div className="author-image">
-                      <img src="/assets/img/about/author.jpg" alt="author-img" />
-                      <div className="content">
-                        <h5>
-                          Lucas J. Swe / <span>CO Founder</span>
-                        </h5>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -143,9 +140,9 @@ const page = () => {
           </div>
           <div className="row">
             {topServices.map((service, index) => (
-              <div
+            <div
                 key={service.slug}
-                className="col-xxl-3 col-xl-4 col-lg-4 col-md-6 wow fadeInUp"
+              className="col-xxl-3 col-xl-4 col-lg-4 col-md-6 wow fadeInUp"
                 data-wow-delay={`${0.2 + index * 0.2}s`}
               >
                 <div
@@ -153,17 +150,17 @@ const page = () => {
                     index === 1 ? " active" : ""
                   }`}
                 >
-                  <div className="icon">
+                <div className="icon">
                     <i className={service.icon} />
-                  </div>
-                  <h3>
+                </div>
+                <h3>
                     <Link href={`/service-details/${service.slug}`}>
                       {service.title}
-                    </Link>
-                  </h3>
-                  <div className="service-thumb">
+                  </Link>
+                </h3>
+                <div className="service-thumb">
                     <img src={service.thumb} alt={service.title} />
-                    <div className="line-shape">
+                  <div className="line-shape">
                       <img src="/assets/img/service/line.png" alt="shape-img" />
                     </div>
                   </div>
@@ -171,21 +168,29 @@ const page = () => {
                     className="link-btn"
                     href={`/service-details/${service.slug}`}
                   >
-                    Read More
-                    <i className="far fa-arrow-right" />
-                  </Link>
-                </div>
+                  Read More
+                  <i className="far fa-arrow-right" />
+                </Link>
               </div>
+            </div>
             ))}
+                </div>
+          <div className="text-center mt-5 wow fadeInUp" data-wow-delay=".3s">
+            <Link href="/service" className="theme-btn">
+              View All Services
+                  <i className="far fa-arrow-right" />
+                </Link>
           </div>
         </div>
       </section>
+      <OurWorks />
+      <CommunityImpact />
       {/* Cta Video Section Start */}
       <div
         className="cta-video-section fix bg-cover"
         style={{ backgroundImage: 'url("/assets/img/cta/cta-video.jpg")' }}
       >
-        <div className="container">
+        {/* <div className="container">
           <div className="cta-video-wrapper">
             <div className="video-box">
               <a
@@ -196,7 +201,7 @@ const page = () => {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="marquee-wrapper text-slider">
           <div className="marquee-inner to-left">
             <ul className="marqee-list d-flex">
@@ -242,246 +247,73 @@ const page = () => {
       {/* Team Section Start */}
       <section className="team-section fix section-padding">
         <div className="container">
-          <div className="row g-4 align-items-center">
-            <div className="col-lg-6">
-              <div className="section-title">
+          <div className="section-title text-center">
                 <span className="sub-content wow fadeInUp">
-                  <img src="/assets/img/bale.png" alt="img" />
-                  Team Member
+              <img src="/assets/img/bale.png" alt="img" />
+              Leadership Team
                 </span>
                 <h2 className="wow fadeInUp" data-wow-delay=".3s">
-                  Meet Our Professional <br />
-                  Team Members
+              Young, Energetic Founders Leading Csolve
                 </h2>
-              </div>
-              <p className="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".5s">
-                Sed ut perspiciatis unde omnis iste natus error sit volupta
-                temes <br /> accusantium doloremque laudantium, totam rem
+            <p className="mt-3 wow fadeInUp" data-wow-delay=".4s">
+              Meet the three founders driving Csolve Technology with vision,
+              technical excellence, and a commitment to building more than
+              systems.
               </p>
             </div>
+          <div className="row g-4 justify-content-center">
+            {teamMembers.map((member, index) => (
             <div
-              className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay=".3s"
+                key={member.slug}
+                className="col-xl-4 col-lg-4 col-md-6 wow fadeInUp"
+                data-wow-delay={`${0.3 + index * 0.2}s`}
             >
               <div className="team-items">
                 <div className="team-image">
-                  <img src="/assets/img/team/01.jpg" alt="img" />
+                    <img src={member.image} alt={member.name} />
                 </div>
                 <div className="team-content">
                   <h4>
-                    <Link href="team-details">Robert E. Whitmore</Link>
+                      <Link href={`/team-details/${member.slug}`}>
+                        {member.shortName}
+                      </Link>
                   </h4>
-                  <p>Product Designer</p>
+                    <p>{member.role}</p>
                   <div className="social-profile">
                     <ul>
+                      <li>
+                        <a href="#">
+                          <i className="fab fa-linkedin-in" />
+                        </a>
+                      </li>
                       <li>
                         <a href="#">
                           <i className="fab fa-twitter" />
                         </a>
                       </li>
                       <li>
-                        <a href="#">
-                          <i className="fab fa-facebook-f" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-instagram" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-linkedin-in" />
+                          <a href={`mailto:${member.email}`}>
+                            <i className="far fa-envelope" />
                         </a>
                       </li>
                     </ul>
-                    <span className="plus-btn">
+                      <Link
+                        href={`/team-details/${member.slug}`}
+                        className="plus-btn"
+                      >
                       <i className="far fa-plus" />
-                    </span>
+                      </Link>
+                </div>
                   </div>
                 </div>
               </div>
+            ))}
             </div>
-            <div
-              className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay=".5s"
-            >
-              <div className="team-items">
-                <div className="team-image">
-                  <img src="/assets/img/team/02.jpg" alt="img" />
-                </div>
-                <div className="team-content">
-                  <h4>
-                    <Link href="team-details">Johnny M. Smith</Link>
-                  </h4>
-                  <p>IT Consultant</p>
-                  <div className="social-profile">
-                    <ul>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-twitter" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-facebook-f" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-instagram" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-linkedin-in" />
-                        </a>
-                      </li>
-                    </ul>
-                    <span className="plus-btn">
-                      <i className="far fa-plus" />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay=".2s"
-            >
-              <div className="team-items">
-                <div className="team-image">
-                  <img src="/assets/img/team/03.jpg" alt="img" />
-                </div>
-                <div className="team-content">
-                  <h4>
-                    <Link href="team-details">Angelo H. Tomlin</Link>
-                  </h4>
-                  <p>Senior Manager</p>
-                  <div className="social-profile">
-                    <ul>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-twitter" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-facebook-f" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-instagram" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-linkedin-in" />
-                        </a>
-                      </li>
-                    </ul>
-                    <span className="plus-btn">
-                      <i className="far fa-plus" />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay=".4s"
-            >
-              <div className="team-items">
-                <div className="team-image">
-                  <img src="/assets/img/team/04.jpg" alt="img" />
-                </div>
-                <div className="team-content">
-                  <h4>
-                    <Link href="team-details">Robert E. Whitmore</Link>
-                  </h4>
-                  <p>Web Designer</p>
-                  <div className="social-profile">
-                    <ul>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-twitter" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-facebook-f" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-instagram" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-linkedin-in" />
-                        </a>
-                      </li>
-                    </ul>
-                    <span className="plus-btn">
-                      <i className="far fa-plus" />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-              data-wow-delay=".6s"
-            >
-              <div className="team-items">
-                <div className="team-image">
-                  <img src="/assets/img/team/05.jpg" alt="img" />
-                </div>
-                <div className="team-content">
-                  <h4>
-                    <Link href="team-details">Manuel G. Wilmer</Link>
-                  </h4>
-                  <p>CEO &amp; Founder</p>
-                  <div className="social-profile">
-                    <ul>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-twitter" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-facebook-f" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-instagram" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-linkedin-in" />
-                        </a>
-                      </li>
-                    </ul>
-                    <span className="plus-btn">
-                      <i className="far fa-plus" />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-xl-3 col-lg-4 col-md-6 ps-xxl-5 wow fadeInUp"
-              data-wow-delay=".8s"
-            >
-              <Link href="team" className="theme-btn">
-                View More Members
+          <div className="text-center mt-5 wow fadeInUp" data-wow-delay=".4s">
+            <Link href="/team" className="theme-btn">
+              View Leadership Team
+              <i className="far fa-arrow-right" />
               </Link>
-            </div>
           </div>
         </div>
       </section>
@@ -491,125 +323,16 @@ const page = () => {
           <div className="section-title text-center">
             <span className="sub-content wow fadeInUp">
               <img src="/assets/img/bale.png" alt="img" />
-              Company Fun Fact
+              Company Metrics
             </span>
             <h2 className="wow fadeInUp" data-wow-delay=".3s">
-              Learn Our Company Statistics
+              Impact Numbers That Define Csolve
             </h2>
           </div>
           <FunFactCounter />
         </div>
       </section>
-      {/* Popular Case Study Section Start */}
-      <section className="case-study-section fix section-padding theme-bg">
-        <div className="left-shape">
-          <img src="/assets/img/case-study/left-shape.png" alt="shape-img" />
-        </div>
-        <div className="right-shape">
-          <img src="/assets/img/case-study/right-shape.png" alt="shape-img" />
-        </div>
-        <div className="container">
-          <div className="section-title-area">
-            <div className="section-title">
-              <span className="sub-content wow fadeInUp">
-                <img src="/assets/img/bale.png" alt="img" />
-                Popular Case Study
-              </span>
-              <h2 className="text-white wow fadeInUp" data-wow-delay=".3s">
-                Discover Our Popular Case Study <br /> That We Globally
-                Completes
-              </h2>
-            </div>
-            <Link href="project" className="theme-btn white-border">
-              View More Cases
-            </Link>
-          </div>
-          <div className="row">
-            <div
-              className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
-              data-wow-delay=".3s"
-            >
-              <div className="case-study-items">
-                <div className="thumb">
-                  <img src="/assets/img/case-study/01.jpg" alt="img" />
-                </div>
-                <div className="content">
-                  <p>IT Consulting</p>
-                  <h3>
-                    <Link href="case-study-details">
-                      How to achieve more with your nine to five
-                    </Link>
-                  </h3>
-                  <Link className="arrow-btn" href="case-study-details">
-                    <i className="far fa-arrow-right" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
-              data-wow-delay=".5s"
-            >
-              <div className="case-study-items">
-                <div className="thumb">
-                  <img src="/assets/img/case-study/02.jpg" alt="img" />
-                </div>
-                <div className="content">
-                  <p>Machine Learning</p>
-                  <h3>
-                    <Link href="case-study-details">
-                      Strategies for outstanding future results
-                    </Link>
-                  </h3>
-                  <Link className="arrow-btn" href="case-study-details">
-                    <i className="far fa-arrow-right" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
-              data-wow-delay=".7s"
-            >
-              <div className="case-study-items">
-                <div className="thumb">
-                  <img src="/assets/img/case-study/03.jpg" alt="img" />
-                </div>
-                <div className="content">
-                  <p>Software Design</p>
-                  <h3>
-                    <Link href="case-study-details">
-                      Discover a better way of system defining company goals.
-                    </Link>
-                  </h3>
-                  <Link className="arrow-btn" href="case-study-details">
-                    <i className="far fa-arrow-right" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Pricing Section Start */}
-      <Pricing />
-      {/* Testimonial Section Start */}
-      <section className="testimonial-section fix section-padding pt-0">
-        <div className="container">
-          <div className="testimonial-wrapper">
-            <div className="row g-4">
-              <div className="col-lg-3">
-                <div className="testimonial-image">
-                  <img src="/assets/img/testimonial/testimonial.png" alt="img" />
-                </div>
-              </div>
-              <div className="col-lg-7 ps-lg-5">
-                <TestimonialSlider1 />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeTestimonials />
       {/* News Section Start */}
       <section className="news-section section-padding pt-0">
         <div className="container">
@@ -619,82 +342,46 @@ const page = () => {
               News &amp; Blog
             </span>
             <h2 className="wow fadeInUp" data-wow-delay=".3s">
-              Explore Our Latest News &amp; Blog
+              Latest Insights From Csolve Technology
             </h2>
           </div>
           <div className="row">
-            <div
-              className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
-              data-wow-delay=".3s"
-            >
-              <div className="news-box-items">
-                <div className="news-content">
-                  <p>November 25, 2024</p>
-                  <h4>
-                    <Link href="news-details">
-                      Revealing Images With Animations Gradients, Blend Modes
-                      Cool
+            {latestPosts.map((post, index) => (
+              <div
+                key={post.slug}
+                className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
+                data-wow-delay={`${0.3 + index * 0.2}s`}
+              >
+                <div className="news-box-items">
+                  <div className="news-content">
+                    <p>
+                      <span className="news-category-accent">
+                        {post.categoryLabel}
+                      </span>
+                      {" · "}
+                      {post.date}
+                    </p>
+                    <h4>
+                      <Link href={`/news/${post.slug}`}>{post.title}</Link>
+                    </h4>
+                    <Link className="link-btn" href={`/news/${post.slug}`}>
+                      Read More
+                      <i className="far fa-arrow-right" />
                     </Link>
-                  </h4>
-                  <Link className="link-btn" href="news-details">
-                    Read More
-                    <i className="far fa-arrow-right" />
-                  </Link>
+                  </div>
+                  <div
+                    className="news-image bg-cover"
+                    style={{ backgroundImage: `url("${post.image}")` }}
+                  />
                 </div>
-                <div
-                  className="news-image bg-cover"
-                  style={{ backgroundImage: 'url("/assets/img/news/01.jpg")' }}
-                />
               </div>
-            </div>
-            <div
-              className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
-              data-wow-delay=".5s"
-            >
-              <div className="news-box-items">
-                <div className="news-content">
-                  <p>November 25, 2024</p>
-                  <h4>
-                    <Link href="news-details">
-                      List of 5 ways Generating Real Time Audio Sentiment
-                      Analysis
-                    </Link>
-                  </h4>
-                  <Link className="link-btn" href="news-details">
-                    Read More
-                    <i className="far fa-arrow-right" />
-                  </Link>
-                </div>
-                <div
-                  className="news-image bg-cover"
-                  style={{ backgroundImage: 'url("/assets/img/news/02.jpg")' }}
-                />
-              </div>
-            </div>
-            <div
-              className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
-              data-wow-delay=".7s"
-            >
-              <div className="news-box-items">
-                <div className="news-content">
-                  <p>November 25, 2024</p>
-                  <h4>
-                    <Link href="news-details">
-                      Revealing Images With Animations Gradients, Blend Modes
-                      Cool
-                    </Link>
-                  </h4>
-                  <Link className="link-btn" href="news-details">
-                    Read More
-                    <i className="far fa-arrow-right" />
-                  </Link>
-                </div>
-                <div
-                  className="news-image bg-cover"
-                  style={{ backgroundImage: 'url("/assets/img/news/03.jpg")' }}
-                />
-              </div>
-            </div>
+            ))}
+          </div>
+          <div className="text-center mt-5 wow fadeInUp" data-wow-delay=".4s">
+            <Link href="/news" className="theme-btn">
+              View All Insights
+              <i className="far fa-arrow-right" />
+            </Link>
           </div>
         </div>
       </section>

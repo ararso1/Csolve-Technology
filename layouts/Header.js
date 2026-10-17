@@ -55,116 +55,85 @@ const Menu = ({ single, menu }) => {
               <Link href="/">Home</Link>
             </li>
             <li>
-              <Link href="about">About</Link>
+              <Link href="/about">About</Link>
             </li>
             <li>
-              <Link href="service">
+              <Link href="/service">
                 Services
                 <i className="fas fa-angle-down" />
               </Link>
               <ul className="submenu">
                 <li>
-                  <Link href="service">All Services</Link>
+                  <Link href="/service">All Services</Link>
                 </li>
                 <li>
-                  <Link href="service-details/software-development">
+                  <Link href="/service-details/software-development">
                     Software Development
                   </Link>
                 </li>
                 <li>
-                  <Link href="service-details/website-development">
+                  <Link href="/service-details/website-development">
                     Website Development
                   </Link>
                 </li>
                 <li>
-                  <Link href="service-details/mobile-app-development">
+                  <Link href="/service-details/mobile-app-development">
                     Mobile App Development
                   </Link>
                 </li>
                 <li>
-                  <Link href="service-details/erp-solutions">ERP Solutions</Link>
+                  <Link href="/service-details/erp-solutions">ERP Solutions</Link>
                 </li>
                 <li>
-                  <Link href="service-details/ai-solutions">AI Solutions</Link>
+                  <Link href="/service-details/ai-solutions">AI Solutions</Link>
                 </li>
                 <li>
-                  <Link href="service-details/networking-it-infrastructure">
+                  <Link href="/service-details/networking-it-infrastructure">
                     Networking &amp; Infrastructure
                   </Link>
                 </li>
                 <li>
-                  <Link href="service-details/digital-marketing">
+                  <Link href="/service-details/digital-marketing">
                     Digital Marketing
                   </Link>
                 </li>
                 <li>
-                  <Link href="service-details/social-media-management">
+                  <Link href="/service-details/social-media-management">
                     Social Media Management
                   </Link>
                 </li>
                 <li>
-                  <Link href="service-details/cybersecurity">Cybersecurity</Link>
-                </li>
-              </ul>
-            </li>
-            <li className="has-dropdown">
-              <Link href="news">
-                Pages
-                <i className="fas fa-angle-down" />
-              </Link>
-              <ul className="submenu">
-                <li className="has-dropdown">
-                  <Link href="project-details">
-                    Projects
-                    <i className="fas fa-angle-down" />
-                  </Link>
-                  <ul className="submenu">
-                    <li>
-                      <Link href="project">Projects</Link>
-                    </li>
-                    <li>
-                      <Link href="project-details">Project Details</Link>
-                    </li>
-                  </ul>
-                </li>
-                <li className="has-dropdown">
-                  <Link href="team-details">
-                    Team
-                    <i className="fas fa-angle-down" />
-                  </Link>
-                  <ul className="submenu">
-                    <li>
-                      <Link href="team">Team</Link>
-                    </li>
-                    <li>
-                      <Link href="team-details">Team Details</Link>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <Link href="pricing">Pricing Table</Link>
-                </li>
-                <li>
-                  <Link href="404">404 Page</Link>
+                  <Link href="/service-details/cybersecurity">Cybersecurity</Link>
                 </li>
               </ul>
             </li>
             <li>
-              <Link href="news">
-                Blog
+              <Link href="/our-works">
+                Works
                 <i className="fas fa-angle-down" />
               </Link>
               <ul className="submenu">
                 <li>
-                  <Link href="news">Blog </Link>
+                  <Link href="/our-works">Our Works</Link>
                 </li>
                 <li>
-                  <Link href="news-details">Blog Details</Link>
+                  <Link href="/community-impact">
+                    Community Impact &amp; Volunteering
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/project">Projects</Link>
+                </li>
+                <li>
+                  <Link href="/gallery">Gallery</Link>
                 </li>
               </ul>
             </li>
             <li>
-              <Link href="contact">Contact</Link>
+              <Link href="/news">Blog</Link>
+            </li>
+            <li>
+              <Link href="/contact">Contact</Link>
             </li>
           </ul>
         </nav>
@@ -218,7 +187,7 @@ const MobileMenu = ({ single, menu }) => {
             ) : (
               <Fragment>
                 <li>
-                  <Link href="about">About</Link>
+                  <Link href="/about">About</Link>
                 </li>
                 <li>
                   <a href="#" onClick={() => activeMenuSet("Services")}>
@@ -227,35 +196,50 @@ const MobileMenu = ({ single, menu }) => {
                   </a>
                   <ul className="submenu" style={activeLi("Services")}>
                     <li>
-                      <Link href="service">All Services</Link>
+                      <Link href="/service">All Services</Link>
                     </li>
                     <li>
-                      <Link href="service-details/software-development">
+                      <Link href="/service-details/software-development">
                         Software Development
                       </Link>
                     </li>
                     <li>
-                      <Link href="service-details/website-development">
+                      <Link href="/service-details/website-development">
                         Website Development
                       </Link>
                     </li>
                     <li>
-                      <Link href="service-details/mobile-app-development">
+                      <Link href="/service-details/mobile-app-development">
                         Mobile App Development
                       </Link>
                     </li>
                     <li>
-                      <Link href="service-details/erp-solutions">
+                      <Link href="/service-details/erp-solutions">
                         ERP Solutions
                       </Link>
                     </li>
                     <li>
-                      <Link href="service-details/ai-solutions">
+                      <Link href="/service-details/ai-solutions">
                         AI Solutions
                       </Link>
                     </li>
                     <li>
-                      <Link href="service-details/cybersecurity">
+                      <Link href="/service-details/networking-it-infrastructure">
+                        Networking &amp; Infrastructure
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/service-details/digital-marketing">
+                        Digital Marketing
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/service-details/social-media-management">
+                        Social Media Management
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/service-details/cybersecurity">
                         Cybersecurity
                       </Link>
                     </li>
@@ -268,95 +252,40 @@ const MobileMenu = ({ single, menu }) => {
                     <i className="far fa-plus" />
                   </a>
                 </li>
-                <li className="has-dropdown">
-                  <a href="#" onClick={() => activeMenuSet("Pages")}>
-                    Pages
+                <li>
+                  <a href="#" onClick={() => activeMenuSet("Works")}>
+                    Works
                     <i className="fas fa-angle-down" />
                   </a>
-                  <ul className="submenu" style={activeLi("Pages")}>
-                    <li className="has-dropdown">
-                      <a href="#" onClick={() => multiMenuSet("Projects")}>
-                        Projects
-                        <i className="fas fa-angle-down" />
-                      </a>
-                      <ul
-                        className="submenu"
-                        style={multiMenuActiveLi("Projects")}
-                      >
-                        <li>
-                          <Link href="project">Projects</Link>
-                        </li>
-                        <li>
-                          <Link href="project-details">Project Details</Link>
-                        </li>
-                      </ul>
-                      <a
-                        className="mean-expand"
-                        href="#"
-                        onClick={() => multiMenuSet("Projects")}
-                      >
-                        <i className="far fa-plus" />
-                      </a>
-                    </li>
-                    <li className="has-dropdown">
-                      <a href="#" onClick={() => multiMenuSet("Team")}>
-                        Team
-                        <i className="fas fa-angle-down" />
-                      </a>
-                      <ul className="submenu" style={multiMenuActiveLi("Team")}>
-                        <li>
-                          <Link href="team">Team</Link>
-                        </li>
-                        <li>
-                          <Link href="team-details">Team Details</Link>
-                        </li>
-                      </ul>
-                      <a
-                        className="mean-expand"
-                        href="#"
-                        onClick={() => multiMenuSet("Team")}
-                      >
-                        <i className="far fa-plus" />
-                      </a>
+                  <ul className="submenu" style={activeLi("Works")}>
+                    <li>
+                      <Link href="/our-works">Our Works</Link>
                     </li>
                     <li>
-                      <Link href="pricing">Pricing Table</Link>
+                      <Link href="/community-impact">
+                        Community Impact &amp; Volunteering
+                      </Link>
                     </li>
                     <li>
-                      <Link href="404">404 Page</Link>
+                      <Link href="/project">Projects</Link>
+                    </li>
+                    <li>
+                      <Link href="/gallery">Gallery</Link>
                     </li>
                   </ul>
                   <a
                     className="mean-expand"
                     href="#"
-                    onClick={() => activeMenuSet("Pages")}
+                    onClick={() => activeMenuSet("Works")}
                   >
                     <i className="far fa-plus" />
                   </a>
                 </li>
                 <li>
-                  <a href="#" onClick={() => activeMenuSet("Blog")}>
-                    Blog
-                    <i className="fas fa-angle-down" />
-                  </a>
-                  <ul className="submenu" style={activeLi("Blog")}>
-                    <li>
-                      <Link href="news">Blog </Link>
-                    </li>
-                    <li>
-                      <Link href="news-details">Blog Details</Link>
-                    </li>
-                  </ul>
-                  <a
-                    className="mean-expand"
-                    href="#"
-                    onClick={() => activeMenuSet("Blog")}
-                  >
-                    <i className="far fa-plus" />
-                  </a>
+                  <Link href="/news">Blog</Link>
                 </li>
                 <li className="mean-last">
-                  <Link href="contact">Contact</Link>
+                  <Link href="/contact">Contact</Link>
                 </li>
               </Fragment>
             )}
@@ -390,9 +319,9 @@ const Sidebar = ({ sidebarToggle, close, menu, single }) => {
                 <MobileMenu single={single} menu={menu} />
               </div>
               <p className="text d-none d-xl-block mb-5">
-                Nullam dignissim, ante scelerisque the is euismod fermentum odio
-                sem semper the is erat, a feugiat leo urna eget eros. Duis
-                Aenean a imperdiet risus.
+                We Build More Than Systems. Csolve Technology delivers software,
+                AI, ERP, infrastructure, and digital solutions for private
+                businesses, government, and NGOs across East Africa.
               </p>
               <div className="offcanvas__contact">
                 <h4>Contact Info</h4>
@@ -402,8 +331,18 @@ const Sidebar = ({ sidebarToggle, close, menu, single }) => {
                       <i className="fal fa-map-marker-alt" />
                     </div>
                     <div className="offcanvas__contact-text">
-                      <a target="_blank" href="#">
-                        Main Street, Melbourne, Australia
+                      <a href="/contact">
+                        Head Office: Labu Mall, Addis Ababa, Ethiopia
+                      </a>
+                    </div>
+                  </li>
+                  <li className="d-flex align-items-center">
+                    <div className="offcanvas__contact-icon">
+                      <i className="fal fa-building" />
+                    </div>
+                    <div className="offcanvas__contact-text">
+                      <a href="/contact">
+                        Branch: Birra Mall, Dire Dawa, Ethiopia
                       </a>
                     </div>
                   </li>
@@ -412,16 +351,8 @@ const Sidebar = ({ sidebarToggle, close, menu, single }) => {
                       <i className="fal fa-envelope" />
                     </div>
                     <div className="offcanvas__contact-text">
-                      <a href="mailto:info@example.com">info@example.com</a>
-                    </div>
-                  </li>
-                  <li className="d-flex align-items-center">
-                    <div className="offcanvas__contact-icon mr-15">
-                      <i className="fal fa-clock" />
-                    </div>
-                    <div className="offcanvas__contact-text">
-                      <a target="_blank" href="#">
-                        Mod-friday, 09am -05pm
+                      <a href="mailto:info@csolvetechnology.com">
+                        info@csolvetechnology.com
                       </a>
                     </div>
                   </li>
@@ -430,12 +361,20 @@ const Sidebar = ({ sidebarToggle, close, menu, single }) => {
                       <i className="far fa-phone" />
                     </div>
                     <div className="offcanvas__contact-text">
-                      <a href="tel:+11002345909">+11002345909</a>
+                      <a href="tel:+251911234567">+251 911 234 567</a>
+                    </div>
+                  </li>
+                  <li className="d-flex align-items-center">
+                    <div className="offcanvas__contact-icon mr-15">
+                      <i className="fal fa-clock" />
+                    </div>
+                    <div className="offcanvas__contact-text">
+                      <span>Mon – Fri: 8:30 AM – 5:30 PM</span>
                     </div>
                   </li>
                 </ul>
                 <div className="header-button mt-4">
-                  <Link href="contact" className="theme-btn text-center">
+                  <Link href="/contact" className="theme-btn text-center">
                     Contact Us
                   </Link>
                 </div>

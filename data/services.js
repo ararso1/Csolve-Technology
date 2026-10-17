@@ -19,8 +19,8 @@ export const services = [
       "Faster delivery with long-term maintainability",
     ],
     icon: "flaticon-software-development",
-    image: "/assets/img/service/01.jpg",
-    thumb: "/assets/img/service/04.png",
+    image: "/assets/img/service/software.jpg",
+    thumb: "/assets/img/service/software.jpg",
   },
   {
     slug: "website-development",
@@ -88,8 +88,8 @@ export const services = [
       "A foundation for scalable organizational growth",
     ],
     icon: "flaticon-database",
-    image: "/assets/img/service/01.jpg",
-    thumb: "/assets/img/service/06.png",
+    image: "/assets/img/service/erp.jpg",
+    thumb: "/assets/img/service/erp.jpg",
   },
   {
     slug: "ai-solutions",
@@ -111,8 +111,8 @@ export const services = [
       "Use data to guide strategy and operations",
     ],
     icon: "flaticon-technical",
-    image: "/assets/img/service/02.jpg",
-    thumb: "/assets/img/service/04.png",
+    image: "/assets/img/service/ai.jpg",
+    thumb: "/assets/img/service/ai.jpg",
   },
   {
     slug: "networking-it-infrastructure",
@@ -203,12 +203,25 @@ export const services = [
       "Confidence to scale digital operations securely",
     ],
     icon: "flaticon-keywords",
-    image: "/assets/img/service/03.jpg",
-    thumb: "/assets/img/service/04.png",
+    image: "/assets/img/service/cybersecurity.jpg",
+    thumb: "/assets/img/service/cybersecurity.jpg",
   },
 ];
 
-export const topServices = services.slice(0, 4);
+const topServiceSlugs = [
+  "software-development",
+  "erp-solutions",
+  "ai-solutions",
+  "cybersecurity",
+];
+
+export const topServices = topServiceSlugs.map((slug, index) => {
+  const service = services.find((item) => item.slug === slug);
+  return {
+    ...service,
+    number: String(index + 1).padStart(2, "0"),
+  };
+});
 
 export const getServiceBySlug = (slug) =>
   services.find((service) => service.slug === slug);

@@ -1,3 +1,4 @@
+import { getRecentPosts } from "@/data/blog";
 import Link from "next/link";
 
 const Footer = ({ footer }) => {
@@ -24,6 +25,8 @@ const Footer = ({ footer }) => {
 export default Footer;
 
 const Footer1 = () => {
+  const recentPosts = getRecentPosts(2);
+
   return (
     <footer className="footer-section footer-bg">
       <div className="container">
@@ -86,16 +89,16 @@ const Footer1 = () => {
                 </div>
                 <ul className="list-items">
                   <li>
-                    <Link href="service-details">Popular Services</Link>
+                    <Link href="service">Our Services</Link>
                   </li>
                   <li>
-                    <Link href="team-details">Team Member</Link>
+                    <Link href="our-works">Our Works</Link>
                   </li>
                   <li>
-                    <Link href="contact">Privacy &amp; Setting</Link>
+                    <Link href="community-impact">Community Impact</Link>
                   </li>
                   <li>
-                    <Link href="pricing">Pricing Package</Link>
+                    <Link href="contact">Contact Us</Link>
                   </li>
                 </ul>
               </div>
@@ -115,9 +118,20 @@ const Footer1 = () => {
                     </div>
                     <div className="content">
                       <p>
-                        Serving communities &amp; institutions <br />
-                        across Africa
+                        Head Office: Labu Mall, Addis Ababa
+                        <br />
+                        Branch: Birra Mall, Dire Dawa
                       </p>
+                    </div>
+                  </div>
+                  <div className="contact-items">
+                    <div className="icon">
+                      <i className="fas fa-phone-alt" />
+                    </div>
+                    <div className="content">
+                      <a href="tel:+251911234567" className="link">
+                        +251 911 234 567
+                      </a>
                     </div>
                   </div>
                   <div className="contact-items">
@@ -133,18 +147,6 @@ const Footer1 = () => {
                       </a>
                     </div>
                   </div>
-                  <div className="contact-items">
-                    <div className="icon">
-                      <i className="fas fa-globe" />
-                    </div>
-                    <div className="content">
-                      <h4>
-                        <a href="https://csolvetechnology.com">
-                          csolvetechnology.com
-                        </a>
-                      </h4>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -157,42 +159,26 @@ const Footer1 = () => {
                   <h4>Recent News</h4>
                 </div>
                 <div className="recent-post-area">
-                  <div className="recent-post-items">
+                  {recentPosts.map((post, index) => (
                     <div
-                      className="thumb bg-cover"
-                      style={{
-                        backgroundImage: 'url("/assets/img/news/pp1.png")',
-                      }}
-                    />
-                    <div className="content">
-                      <ul className="post-date">
-                        <li>Nov 25, 2024</li>
-                      </ul>
-                      <h6>
-                        <Link href="news-details">
-                          How achieve more <br /> your nine to five
-                        </Link>
-                      </h6>
+                      key={post.slug}
+                      className={`recent-post-items${
+                        index === recentPosts.length - 1 ? " mb-0" : ""
+                      }`}
+                    >
+                      <div className="thumb">
+                        <img src={post.thumb || post.image} alt={post.title} />
+                      </div>
+                      <div className="content">
+                        <ul className="post-date">
+                          <li>{post.date}</li>
+                        </ul>
+                        <h6>
+                          <Link href={`/news/${post.slug}`}>{post.title}</Link>
+                        </h6>
+                      </div>
                     </div>
-                  </div>
-                  <div className="recent-post-items mb-0">
-                    <div
-                      className="thumb bg-cover"
-                      style={{
-                        backgroundImage: 'url("/assets/img/news/pp2.png")',
-                      }}
-                    />
-                    <div className="content">
-                      <ul className="post-date">
-                        <li>Nov 29, 2024</li>
-                      </ul>
-                      <h6>
-                        <Link href="news-details">
-                          Discover a better way of company.
-                        </Link>
-                      </h6>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
