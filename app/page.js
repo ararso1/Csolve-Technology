@@ -2,6 +2,7 @@ import CommunityImpact from "@/components/CommunityImpact";
 import FunFactCounter from "@/components/FunFactCounter";
 import HeroSlider from "@/components/HeroSlider";
 import HomeTestimonials from "@/components/HomeTestimonials";
+import Partners from "@/components/Partners";
 import { getRecentPosts } from "@/data/blog";
 import OurWorks from "@/components/OurWorks";
 import { company, topServices } from "@/data/services";
@@ -80,7 +81,7 @@ const page = () => {
                     </div>
                     <div className="col-md-6 wow fadeInUp" data-wow-delay=".4s">
                       <div className="about-image">
-                        <img src="/assets/img/about/02.jpg" alt="about-img" />
+                        <img src="/assets/img/about/02.png" alt="about-img" />
                       </div>
                     </div>
                   </div>
@@ -332,6 +333,7 @@ const page = () => {
           <FunFactCounter />
         </div>
       </section>
+      <Partners paddingTop={false} />
       <HomeTestimonials />
       {/* News Section Start */}
       <section className="news-section section-padding pt-0">

@@ -9,7 +9,7 @@ const offices = [
     icon: "fas fa-building",
     name: "Labu Mall",
     address: "Labu Mall, Addis Ababa, Ethiopia",
-    phone: "+251 911 234 567",
+    phone: "+251 986828384",
     email: "info@csolvetechnology.com",
   },
   {
@@ -18,7 +18,7 @@ const offices = [
     icon: "fas fa-map-marker-alt",
     name: "Birra Mall",
     address: "Birra Mall, Dire Dawa, Ethiopia",
-    phone: "+251 925 678 901",
+    phone: "+251 986828384",
     email: "diredawa@csolvetechnology.com",
   },
 ];
@@ -107,7 +107,7 @@ const page = () => {
                     </span>
                     <div>
                       <strong>Phone</strong>
-                      <a href="tel:+251911234567">+251 911 234 567</a>
+                      <a href="tel:+251986828384">+251 986828384</a>
                     </div>
                   </li>
                   <li>

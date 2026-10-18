@@ -2,10 +2,13 @@ import Link from "next/link";
 
 const Breadcrumb = ({ pageName = "About Company", pageTitle }) => {
   return (
-    <div
-      className="breadcrumb-wrapper section-padding bg-cover"
-      style={{ backgroundImage: 'url("/assets/img/breadcrumb.jpg")' }}
-    >
+    <div className="breadcrumb-wrapper csolve-breadcrumb section-padding bg-cover">
+      <div
+        className="csolve-breadcrumb-bg"
+        style={{ backgroundImage: 'url("/assets/img/about/01.jpg")' }}
+        aria-hidden="true"
+      />
+      <div className="csolve-breadcrumb-overlay" aria-hidden="true" />
       <div className="container">
         <div className="page-heading">
           <h1 className="wow fadeInUp" data-wow-delay=".3s">
@@ -25,4 +28,5 @@ const Breadcrumb = ({ pageName = "About Company", pageTitle }) => {
     </div>
   );
 };
+
 export default Breadcrumb;

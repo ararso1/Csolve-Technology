@@ -122,8 +122,11 @@ const Menu = ({ single, menu }) => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/project">Projects</Link>
+                  <Link href="/partners">Our Partners</Link>
                 </li>
+                {/* <li>
+                  <Link href="/project">Projects</Link>
+                </li> */}
                 <li>
                   <Link href="/gallery">Gallery</Link>
                 </li>
@@ -267,8 +270,11 @@ const MobileMenu = ({ single, menu }) => {
                       </Link>
                     </li>
                     <li>
-                      <Link href="/project">Projects</Link>
+                      <Link href="/partners">Our Partners</Link>
                     </li>
+                    {/* <li>
+                      <Link href="/project">Projects</Link>
+                    </li> */}
                     <li>
                       <Link href="/gallery">Gallery</Link>
                     </li>
@@ -361,7 +367,7 @@ const Sidebar = ({ sidebarToggle, close, menu, single }) => {
                       <i className="far fa-phone" />
                     </div>
                     <div className="offcanvas__contact-text">
-                      <a href="tel:+251911234567">+251 911 234 567</a>
+                      <a href="tel:+251986828384">+251 986828384</a>
                     </div>
                   </li>
                   <li className="d-flex align-items-center">
@@ -563,7 +569,7 @@ const Header3 = ({ single }) => {
                   <div className="content">
                     <p>Make A Call</p>
                     <h4>
-                      <a href="tel:+00012345688">+000 (123) 456 88</a>
+                      <a href="tel:+251986828384">+251 986828384</a>
                     </h4>
                   </div>
                 </div>

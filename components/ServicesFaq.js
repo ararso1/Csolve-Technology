@@ -1,6 +1,4 @@
-"use client";
-
-import { useState } from "react";
+import FaqAccordion from "@/components/FaqAccordion";
 
 const faqItems = [
   {
@@ -30,12 +28,6 @@ const faqItems = [
 ];
 
 const ServicesFaq = () => {
-  const [activeId, setActiveId] = useState(faqItems[0].id);
-
-  const toggleItem = (id) => {
-    setActiveId((current) => (current === id ? "" : id));
-  };
-
   return (
     <section className="services-page-faq fix section-padding pt-0">
       <div className="container">
@@ -50,38 +42,7 @@ const ServicesFaq = () => {
         </div>
         <div className="row justify-content-center">
           <div className="col-lg-10">
-            <div className="services-faq-list">
-              {faqItems.map((item) => {
-                const isOpen = activeId === item.id;
-                return (
-                  <div
-                    key={item.id}
-                    className={`services-faq-item${isOpen ? " is-open" : ""}`}
-                  >
-                    <button
-                      type="button"
-                      className="services-faq-question"
-                      aria-expanded={isOpen}
-                      onClick={() => toggleItem(item.id)}
-                    >
-                      <span>{item.question}</span>
-                      <i
-                        className={`fas ${isOpen ? "fa-minus" : "fa-plus"}`}
-                        aria-hidden="true"
-                      />
-                    </button>
-                    <div
-                      className="services-faq-answer"
-                      style={{
-                        maxHeight: isOpen ? "240px" : "0px",
-                      }}
-                    >
-                      <p>{item.answer}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            <FaqAccordion items={faqItems} />
           </div>
         </div>
       </div>

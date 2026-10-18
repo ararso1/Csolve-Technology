@@ -217,7 +217,7 @@ const page = () => {
                     </div>
                     <div className="col-md-6 wow fadeInUp" data-wow-delay=".4s">
                       <div className="about-image">
-                        <img src="/assets/img/about/02.jpg" alt="about-img" />
+                        <img src="/assets/img/about/02.png" alt="about-img" />
                       </div>
                     </div>
                   </div>

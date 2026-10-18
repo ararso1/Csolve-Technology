@@ -129,8 +129,8 @@ const Footer1 = () => {
                       <i className="fas fa-phone-alt" />
                     </div>
                     <div className="content">
-                      <a href="tel:+251911234567" className="link">
-                        +251 911 234 567
+                      <a href="tel:+251986828384" className="link">
+                        +251 986828384
                       </a>
                     </div>
                   </div>
@@ -189,13 +189,13 @@ const Footer1 = () => {
             <div className="footer-wrapper d-flex align-items-center justify-content-between">
               <ul className="footer-menu wow fadeInUp" data-wow-delay=".2s">
                 <li>
-                  <Link href="faq">FAQs</Link>
+                  <Link href="/faq">FAQs</Link>
                 </li>
                 <li>
-                  <Link href="about">Company</Link>
+                  <Link href="/about">Company</Link>
                 </li>
                 <li>
-                  <Link href="contact">Privacy</Link>
+                  <Link href="/privacy">Privacy</Link>
                 </li>
               </ul>
               <a
@@ -272,7 +272,7 @@ const Footer2 = () => {
                     <Link href="team-details">Team Member</Link>
                   </li>
                   <li>
-                    <Link href="contact">Privacy &amp; Setting</Link>
+                    <Link href="/privacy">Privacy Policy</Link>
                   </li>
                   <li>
                     <Link href="pricing">Pricing Package</Link>
@@ -316,7 +316,7 @@ const Footer2 = () => {
                     </div>
                     <div className="content">
                       <h4>
-                        <a href="tel:00012345688">+000 (123) 456 88</a>
+                        <a href="tel:+251986828384">+251 986828384</a>
                       </h4>
                     </div>
                   </div>
@@ -336,7 +336,7 @@ const Footer2 = () => {
                     <Link href="service-details">Terms &amp; Conditions</Link>
                   </li>
                   <li>
-                    <Link href="contact">Privacy Policy</Link>
+                    <Link href="/privacy">Privacy Policy</Link>
                   </li>
                   <li>
                     <Link href="pricing">Pricing Plan</Link>
@@ -376,13 +376,13 @@ const Footer2 = () => {
           <div className="footer-wrapper d-flex align-items-center justify-content-between pb-0">
             <ul className="footer-menu">
               <li>
-                <Link href="faq">FAQs</Link>
+                <Link href="/faq">FAQs</Link>
               </li>
               <li>
-                <Link href="about">Company</Link>
+                <Link href="/about">Company</Link>
               </li>
               <li>
-                <Link href="contact">Privacy</Link>
+                <Link href="/privacy">Privacy</Link>
               </li>
             </ul>
             <a href="#" id="scrollUp" className="scroll-icon">
@@ -453,7 +453,7 @@ const Footer3 = () => {
                     <Link href="team-details">Team Member</Link>
                   </li>
                   <li>
-                    <Link href="contact">Privacy &amp; Setting</Link>
+                    <Link href="/privacy">Privacy Policy</Link>
                   </li>
                   <li>
                     <Link href="pricing">Pricing Package</Link>
@@ -497,7 +497,7 @@ const Footer3 = () => {
                     </div>
                     <div className="content">
                       <h4>
-                        <a href="tel:00012345688">+000 (123) 456 88</a>
+                        <a href="tel:+251986828384">+251 986828384</a>
                       </h4>
                     </div>
                   </div>
@@ -531,13 +531,13 @@ const Footer3 = () => {
           <div className="footer-wrapper d-flex align-items-center justify-content-between pb-0">
             <ul className="footer-menu">
               <li>
-                <Link href="faq">FAQs</Link>
+                <Link href="/faq">FAQs</Link>
               </li>
               <li>
-                <Link href="about">Company</Link>
+                <Link href="/about">Company</Link>
               </li>
               <li>
-                <Link href="contact">Privacy</Link>
+                <Link href="/privacy">Privacy</Link>
               </li>
             </ul>
             <a href="#" id="scrollUp" className="scroll-icon">
@@ -614,7 +614,7 @@ const Footer4 = () => {
                     <Link href="team-details">Team Member</Link>
                   </li>
                   <li>
-                    <Link href="contact">Privacy &amp; Setting</Link>
+                    <Link href="/privacy">Privacy Policy</Link>
                   </li>
                   <li>
                     <Link href="pricing">Pricing Package</Link>
@@ -658,7 +658,7 @@ const Footer4 = () => {
                     </div>
                     <div className="content">
                       <h4>
-                        <a href="tel:00012345688">+000 (123) 456 88</a>
+                        <a href="tel:+251986828384">+251 986828384</a>
                       </h4>
                     </div>
                   </div>
@@ -692,13 +692,13 @@ const Footer4 = () => {
           <div className="footer-wrapper d-flex align-items-center justify-content-between pb-0">
             <ul className="footer-menu">
               <li>
-                <Link href="faq">FAQs</Link>
+                <Link href="/faq">FAQs</Link>
               </li>
               <li>
-                <Link href="about">Company</Link>
+                <Link href="/about">Company</Link>
               </li>
               <li>
-                <Link href="contact">Privacy</Link>
+                <Link href="/privacy">Privacy</Link>
               </li>
             </ul>
             <a href="#" id="scrollUp" className="scroll-icon">
@@ -789,7 +789,7 @@ const Footer6 = () => {
                     <Link href="team-details">Team Member</Link>
                   </li>
                   <li>
-                    <Link href="contact">Privacy &amp; Setting</Link>
+                    <Link href="/privacy">Privacy Policy</Link>
                   </li>
                   <li>
                     <Link href="pricing">Pricing Package</Link>
@@ -833,7 +833,7 @@ const Footer6 = () => {
                     </div>
                     <div className="content">
                       <h4>
-                        <a href="tel:00012345688">+000 (123) 456 88</a>
+                        <a href="tel:+251986828384">+251 986828384</a>
                       </h4>
                     </div>
                   </div>
@@ -895,13 +895,13 @@ const Footer6 = () => {
             <div className="footer-wrapper d-flex align-items-center justify-content-between">
               <ul className="footer-menu wow fadeInUp" data-wow-delay=".2s">
                 <li>
-                  <Link href="faq">FAQs</Link>
+                  <Link href="/faq">FAQs</Link>
                 </li>
                 <li>
-                  <Link href="about">Company</Link>
+                  <Link href="/about">Company</Link>
                 </li>
                 <li>
-                  <Link href="contact">Privacy</Link>
+                  <Link href="/privacy">Privacy</Link>
                 </li>
               </ul>
               <a

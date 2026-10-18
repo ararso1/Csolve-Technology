@@ -1,6 +1,7 @@
 import Breadcrumb from "@/components/Breadcrumb";
 import FunFactCounter from "@/components/FunFactCounter";
 import HomeTestimonials from "@/components/HomeTestimonials";
+import Partners from "@/components/Partners";
 import Team from "@/components/Team";
 import { company } from "@/data/services";
 import NextLayout from "@/layouts/NextLayout";
@@ -85,7 +86,7 @@ const page = () => {
                 <div className="about-page-media-stack">
                   <div className="about-page-media-thumb">
                     <img
-                      src="/assets/img/about/02.jpg"
+                      src="/assets/img/about/02.png"
                       alt="Csolve digital solutions"
                     />
                   </div>
@@ -185,7 +186,7 @@ const page = () => {
             <div className="col-lg-6 wow fadeInUp" data-wow-delay=".25s">
               <div className="about-page-serve-media">
                 <img
-                  src="/assets/img/about/05.jpg"
+                  src="/assets/img/about/05.png"
                   alt="Organizations Csolve Technology serves"
                 />
                 <div className="about-page-serve-caption">
@@ -277,6 +278,7 @@ const page = () => {
         </div>
       </section>
 
+      <Partners paddingTop={false} />
       <HomeTestimonials />
     </NextLayout>
   );

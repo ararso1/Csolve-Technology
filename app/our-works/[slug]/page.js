@@ -22,7 +22,18 @@ const page = ({ params }) => {
   const work = getWorkBySlug(params.slug);
   if (!work) notFound();
 
-  const related = works.filter((item) => item.slug !== work.slug).slice(0, 3);
+  const related = works
+    .filter((item) => item.slug !== work.slug)
+    .sort((a, b) => {
+      const aScore = a.categories.filter((cat) =>
+        work.categories.includes(cat)
+      ).length;
+      const bScore = b.categories.filter((cat) =>
+        work.categories.includes(cat)
+      ).length;
+      return bScore - aScore;
+    })
+    .slice(0, 3);
 
   return (
     <NextLayout>
@@ -41,6 +52,19 @@ const page = ({ params }) => {
                 </span>
                 <h2 className="mt-3">{work.title}</h2>
                 <p className="mt-3">{work.description}</p>
+                {work.solutions?.length > 0 && (
+                  <>
+                    <h4 className="mt-4">Key Solutions Delivered</h4>
+                    <ul className="about-list mt-3">
+                      {work.solutions.map((item) => (
+                        <li key={item}>
+                          <i className="fas fa-check" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
                 <h4 className="mt-4">Key Outcomes</h4>
                 <ul className="about-list mt-3">
                   {work.outcomes.map((item) => (
