@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:cpanel": "NODE_OPTIONS=--max-old-space-size=512 next build",
+    "build:cpanel": "RAYON_NUM_THREADS=1 UV_THREADPOOL_SIZE=1 NODE_OPTIONS=--max-old-space-size=512 next build",
     "start": "next start",
     "lint": "next lint"
   },
