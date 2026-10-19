@@ -1,14 +1,14 @@
 export const teamMembers = [
   {
     slug: "hayu-usmail-ibro",
-    name: "Engineer Hayu Usmail Ibro",
-    shortName: "Hayu Usmail Ibro",
+    name: "Eng. Hayu Usmail Ibro",
+    shortName: "Eng. Hayu Usmail Ibro",
     role: "Founder & General Manager",
     department: "Leadership & Strategy",
     image: "/assets/img/team/hayu.png",
     email: "info@csolvetechnology.com",
     phone: "+251 986828384",
-    bio: "Engineer Hayu Usmail Ibro is Founder and General Manager of Csolve Technology. A young and energetic leader, he drives the company’s vision to build more than systems — delivering practical technology that creates lasting value for businesses and communities across Ethiopia and East Africa.",
+    bio: "Eng. Hayu Usmail Ibro is Founder and General Manager of Csolve Technology. A young and energetic leader, he drives the company’s vision to build more than systems — delivering practical technology that creates lasting value for businesses and communities across Ethiopia and East Africa.",
     focus: [
       "Company vision and strategic growth",
       "Client partnerships and institutional relationships",
@@ -22,14 +22,14 @@ export const teamMembers = [
   },
   {
     slug: "ararso-abdurhaman-alisho",
-    name: "Engineer Ararso Abdurhaman Alisho",
-    shortName: "Ararso Abdurhaman Alisho",
+    name: "Eng. Ararso Abdurhaman Alisho",
+    shortName: "Eng. Ararso Abdurhaman Alisho",
     role: "Founder, Deputy Manager & CTO",
     department: "Technology & Innovation",
     image: "/assets/img/team/ararso.png",
     email: "info@csolvetechnology.com",
     phone: "+251 986828384",
-    bio: "Engineer Ararso Abdurhaman Alisho is Founder, Deputy Manager, and Chief Technology Officer at Csolve Technology. Young, energetic, and deeply technical, he leads product engineering and innovation across software, ERP, AI, infrastructure, and digital transformation projects.",
+    bio: "Eng. Ararso Abdurhaman Alisho is Founder, Deputy Manager, and Chief Technology Officer at Csolve Technology. Young, energetic, and deeply technical, he leads product engineering and innovation across software, ERP, AI, infrastructure, and digital transformation projects.",
     focus: [
       "Software architecture and technical excellence",
       "AI, ERP, and digital product delivery",
