@@ -1,0 +1,9 @@
+npm install --omit=dev
+git pull
+source ~/nodevenv/csolvetechnology/20/bin/activate
+cd ~/csolvetechnology
+
+export NODE_OPTIONS="--max-old-space-size=512"
+export UV_THREADPOOL_SIZE=1
+
+npm run build
