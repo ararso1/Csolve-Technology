@@ -2,18 +2,69 @@
 
 import Breadcrumb from "@/components/Breadcrumb";
 import Cta from "@/components/Cta";
-import { galleryCategories, galleryItems } from "@/data/gallery";
+import { fetchGallery } from "@/lib/api";
 import NextLayout from "@/layouts/NextLayout";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const GalleryPage = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeItem, setActiveItem] = useState(null);
+  const [categories, setCategories] = useState([
+    { id: "all", slug: "all", label: "All" },
+  ]);
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadGallery() {
+      setLoading(true);
+      setError("");
+      try {
+        const data = await fetchGallery("all");
+        if (cancelled) return;
+
+        const apiCategories = (data.categories || []).map((cat) => ({
+          id: cat.slug,
+          slug: cat.slug,
+          label: cat.label,
+        }));
+
+        setCategories([{ id: "all", slug: "all", label: "All" }, ...apiCategories]);
+        setItems(
+          (data.items || []).map((item) => ({
+            id: item.slug || String(item.id),
+            title: item.title,
+            category: item.category,
+            categoryLabel: item.categoryLabel,
+            image: item.image,
+            size: item.size || "normal",
+          }))
+        );
+      } catch (err) {
+        if (!cancelled) {
+          setError(
+            "Unable to load gallery from the API. Start the Django server and try again."
+          );
+          setItems([]);
+        }
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+
+    loadGallery();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const filteredItems = useMemo(() => {
-    if (activeCategory === "all") return galleryItems;
-    return galleryItems.filter((item) => item.category === activeCategory);
-  }, [activeCategory]);
+    if (activeCategory === "all") return items;
+    return items.filter((item) => item.category === activeCategory);
+  }, [activeCategory, items]);
 
   return (
     <NextLayout>
@@ -36,7 +87,7 @@ const GalleryPage = () => {
           </div>
 
           <div className="gallery-filter wow fadeInUp" data-wow-delay=".3s">
-            {galleryCategories.map((category) => (
+            {categories.map((category) => (
               <button
                 key={category.id}
                 type="button"
@@ -48,29 +99,43 @@ const GalleryPage = () => {
             ))}
           </div>
 
-          <div className="gallery-grid">
-            {filteredItems.map((item, index) => (
-              <button
-                key={item.id}
-                type="button"
-                className={`gallery-card gallery-card--${item.size} wow fadeInUp`}
-                data-wow-delay={`${0.15 + (index % 6) * 0.05}s`}
-                onClick={() => setActiveItem(item)}
-              >
-                <img src={item.image} alt={item.title} />
-                <span className="gallery-card-overlay">
-                  <span className="gallery-card-tag">{item.categoryLabel}</span>
-                  <span className="gallery-card-title">{item.title}</span>
-                  <span className="gallery-card-hint">
-                    View
-                    <i className="far fa-arrow-right" />
-                  </span>
-                </span>
-              </button>
-            ))}
-          </div>
+          {loading && (
+            <div className="text-center mt-5">
+              <p>Loading gallery...</p>
+            </div>
+          )}
 
-          {!filteredItems.length && (
+          {!loading && error && (
+            <div className="text-center mt-5">
+              <p>{error}</p>
+            </div>
+          )}
+
+          {!loading && !error && (
+            <div className="gallery-grid">
+              {filteredItems.map((item, index) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={`gallery-card gallery-card--${item.size} wow fadeInUp`}
+                  data-wow-delay={`${0.15 + (index % 6) * 0.05}s`}
+                  onClick={() => setActiveItem(item)}
+                >
+                  <img src={item.image} alt={item.title} />
+                  <span className="gallery-card-overlay">
+                    <span className="gallery-card-tag">{item.categoryLabel}</span>
+                    <span className="gallery-card-title">{item.title}</span>
+                    <span className="gallery-card-hint">
+                      View
+                      <i className="far fa-arrow-right" />
+                    </span>
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
+
+          {!loading && !error && !filteredItems.length && (
             <div className="text-center mt-5">
               <p>No gallery items in this category yet. Try another filter.</p>
             </div>

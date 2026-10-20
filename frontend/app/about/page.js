@@ -1,6 +1,7 @@
 import Breadcrumb from "@/components/Breadcrumb";
 import FunFactCounter from "@/components/FunFactCounter";
 import HomeTestimonials from "@/components/HomeTestimonials";
+import OrgStructure from "@/components/OrgStructure";
 import Partners from "@/components/Partners";
 import Team from "@/components/Team";
 import { company } from "@/data/services";
@@ -261,6 +262,7 @@ const page = () => {
         </div>
       </section>
 
+      <OrgStructure />
       <Team />
 
       <section className="funfact-section section-padding">
