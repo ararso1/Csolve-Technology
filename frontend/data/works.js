@@ -19,8 +19,19 @@ export const works = [
     client: "Chiro City Administration",
     sector: "Government / Public",
     categories: ["government", "digital-transformation", "software-erp"],
-    year: "2024",
-    image: "/assets/img/works/chiro-city-digitalization.jpg",
+    year: "2025",
+    image: "/assets/new-img/IMG_2279.JPG",
+    gallery: [
+      "/assets/new-img/IMG_2278.JPG",
+      "/assets/new-img/IMG_2280.JPG",
+      "/assets/new-img/IMG_2252.JPG",
+      "/assets/new-img/IMG_2246.JPG",
+      "/assets/new-img/IMG_2034.JPG",
+      "/assets/new-img/IMG_2182.JPG",
+      "/assets/new-img/IMG_2054.PNG",
+      "/assets/new-img/IMG_2061.PNG",
+      "/assets/new-img/IMG_2252.JPG",
+    ],
     summary:
       "A smart city digitalization program integrating sector systems to improve public service delivery, coordination, and operational efficiency.",
     description:
@@ -45,8 +56,20 @@ export const works = [
     client: "Chiro City Administration",
     sector: "Government / Public",
     categories: ["government", "websites"],
-    year: "2024",
+    year: "2026",
     image: "/assets/img/works/chiro-city-website.jpg",
+    image: "/assets/new-img/IMG_2197.JPG",
+    gallery: [
+      "/assets/new-img/IMG_2278.JPG",
+      "/assets/new-img/IMG_2280.JPG",
+      "/assets/new-img/IMG_2252.JPG",
+      "/assets/new-img/IMG_2246.JPG",
+      "/assets/new-img/IMG_2034.JPG",
+      "/assets/new-img/IMG_2182.JPG",
+      "/assets/new-img/IMG_2054.PNG",
+      "/assets/new-img/IMG_2061.PNG",
+      "/assets/new-img/IMG_2252.JPG",
+    ],
     summary:
       "The official Chiro City website for public information, announcements, institutional updates, and digital access to city services.",
     description:
@@ -70,8 +93,19 @@ export const works = [
     client: "Chiro City Administration",
     sector: "Government / Public",
     categories: ["government", "mobile-apps", "digital-transformation"],
-    year: "2024",
+    year: "2026",
     image: "/assets/img/works/digital-chiro-mobile.jpg",
+    gallery: [
+      "/assets/new-img/IMG_2278.JPG",
+      "/assets/new-img/IMG_2280.JPG",
+      "/assets/new-img/IMG_2252.JPG",
+      "/assets/new-img/IMG_2246.JPG",
+      "/assets/new-img/IMG_2034.JPG",
+      "/assets/new-img/IMG_2182.JPG",
+      "/assets/new-img/IMG_2054.PNG",
+      "/assets/new-img/IMG_2061.PNG",
+      "/assets/new-img/IMG_2252.JPG",
+    ],
     summary:
       "A citizen-facing mobile app that connects public services with city sector systems and the Mesob One-Stop Service Center.",
     description:
@@ -95,7 +129,7 @@ export const works = [
     client: "Oromia Islamic Affairs Supreme Council",
     sector: "Government / Public",
     categories: ["government", "digital-transformation", "software-erp"],
-    year: "2024",
+    year: "2025",
     image: "/assets/img/works/oromia-islamic-affairs.jpg",
     summary:
       "Comprehensive organizational digitalization covering HRMS, Halal Department operations, membership services, and mosque management across the region.",
@@ -122,7 +156,7 @@ export const works = [
     client: "Mechara-Mechata City Education Office",
     sector: "Education",
     categories: ["education", "government", "digital-transformation"],
-    year: "2024",
+    year: "2026",
     image: "/assets/img/works/mechara-education.jpg",
     summary:
       "Digital transformation of the city Education Office and schools through integrated education management systems.",
@@ -147,7 +181,7 @@ export const works = [
     client: "Mechara-Mechata City Administration",
     sector: "Government / Public",
     categories: ["government", "websites"],
-    year: "2024",
+    year: "2026",
     image: "/assets/img/works/mechara-city-website.jpg",
     summary:
       "Official city website for public information, updates, announcements, and institutional services.",
@@ -172,7 +206,7 @@ export const works = [
     client: "Hunde Secondary School, Gelemso",
     sector: "Education",
     categories: ["education", "digital-transformation"],
-    year: "2023",
+    year: "2025",
     image: "/assets/img/works/hunde-secondary-school.jpg",
     summary:
       "Comprehensive school digitalization supporting administration, academic management, and operational efficiency in Gelemso.",
@@ -580,3 +614,83 @@ export const featuredWorks = featuredWorkSlugs
   .filter(Boolean);
 
 export const getWorkBySlug = (slug) => works.find((work) => work.slug === slug);
+
+const sectorGalleryFallbacks = {
+  "Government / Public": [
+    "/assets/img/project/details-1.jpg",
+    "/assets/img/project/02.jpg",
+    "/assets/img/project/04.jpg",
+  ],
+  Education: [
+    "/assets/img/project/05.jpg",
+    "/assets/img/project/08.jpg",
+    "/assets/img/community/education.jpg",
+  ],
+  "Private Sector": [
+    "/assets/img/project/07.jpg",
+    "/assets/img/project/11.jpg",
+    "/assets/img/project/12.jpg",
+  ],
+  Healthcare: [
+    "/assets/img/project/09.jpg",
+    "/assets/img/project/details-2.jpg",
+    "/assets/img/project/03.jpg",
+  ],
+  NGOs: [
+    "/assets/img/community/volunteer.jpg",
+    "/assets/img/community/students.jpg",
+    "/assets/img/project/10.jpg",
+  ],
+  Government: [
+    "/assets/img/project/details-1.jpg",
+    "/assets/img/project/01.jpg",
+    "/assets/img/project/06.jpg",
+  ],
+};
+
+/**
+ * Build an appealing project gallery: main image, same-client visuals,
+ * related-category works, then sector fallbacks.
+ */
+export const getWorkGallery = (work) => {
+  if (!work) return [];
+
+  if (work.gallery?.length) {
+    return work.gallery.map((item, index) =>
+      typeof item === "string"
+        ? { src: item, alt: `${work.title} gallery ${index + 1}` }
+        : item
+    );
+  }
+
+  const seen = new Set();
+  const gallery = [];
+
+  const pushImage = (src, alt) => {
+    if (!src || seen.has(src)) return;
+    seen.add(src);
+    gallery.push({ src, alt });
+  };
+
+  pushImage(work.image, work.title);
+
+  works
+    .filter((item) => item.slug !== work.slug && item.client === work.client)
+    .forEach((item) => pushImage(item.image, item.title));
+
+  works
+    .filter(
+      (item) =>
+        item.slug !== work.slug &&
+        item.client !== work.client &&
+        item.categories.some((cat) => work.categories.includes(cat))
+    )
+    .slice(0, 4)
+    .forEach((item) => pushImage(item.image, item.title));
+
+  (sectorGalleryFallbacks[work.sector] || []).forEach((src, index) => {
+    pushImage(src, `${work.title} visual ${index + 1}`);
+  });
+
+  return gallery.slice(0, 8);
+};

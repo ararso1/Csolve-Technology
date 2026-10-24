@@ -8,22 +8,28 @@ const WorkingProcess = () => {
             Working Process
           </span>
           <h2 className="wow fadeInUp" data-wow-delay=".3s">
-            We Complete Our Work to Follow <br />
-            Some Easy Ways
+            How Csolve Delivers Digital Solutions
+            <br />
+            That Create Lasting Value
           </h2>
+          <p className="mt-3 wow fadeInUp" data-wow-delay=".4s">
+            From discovery to launch, we follow a clear process built for
+            real institutions, businesses, and communities across East Africa.
+          </p>
         </div>
         <div className="row align-items-center justify-content-between">
           <div className="col-lg-8 wow fadeInUp" data-wow-delay=".3s">
-            <div className="working-card-items">
+            <div className="working-card-items working-card-items--step-1">
               <div className="icon">
                 <img src="/assets/img/working-process/icon-1.png" alt="img" />
               </div>
               <div className="content">
                 <span className="sub-title">Step 01</span>
-                <h3>Discovery &amp; Analysis</h3>
+                <h3>Discover &amp; Align</h3>
                 <p>
-                  Sed ut perspiciatis unde omnis iste natus error <br />{" "}
-                  voluptatem accusantium
+                  We listen to your goals, users, and constraints so every
+                  <br />
+                  solution starts with real operational needs.
                 </p>
               </div>
             </div>
@@ -42,13 +48,14 @@ const WorkingProcess = () => {
             </div>
           </div>
           <div className="col-lg-8 wow fadeInUp" data-wow-delay=".5s">
-            <div className="working-card-items">
+            <div className="working-card-items working-card-items--step-2">
               <div className="content">
                 <span className="sub-title">Step 02</span>
-                <h3>Competitor Analysis</h3>
+                <h3>Design &amp; Plan</h3>
                 <p>
-                  Sed ut perspiciatis unde omnis iste natus error <br />{" "}
-                  voluptatem accusantium
+                  We define the right architecture, workflows, and roadmap
+                  <br />
+                  across software, ERP, AI, and infrastructure.
                 </p>
               </div>
               <div className="icon">
@@ -57,16 +64,17 @@ const WorkingProcess = () => {
             </div>
           </div>
           <div className="col-lg-8 wow fadeInUp" data-wow-delay=".3s">
-            <div className="working-card-items">
+            <div className="working-card-items working-card-items--step-3">
               <div className="icon">
                 <img src="/assets/img/working-process/icon-3.png" alt="img" />
               </div>
               <div className="content">
                 <span className="sub-title">Step 03</span>
-                <h3>Strategy &amp; Execution</h3>
+                <h3>Build &amp; Integrate</h3>
                 <p>
-                  Sed ut perspiciatis unde omnis iste natus error <br />{" "}
-                  voluptatem accusantium
+                  Our team develops and connects practical systems that fit
+                  <br />
+                  how your organization actually works day to day.
                 </p>
               </div>
             </div>
@@ -85,13 +93,14 @@ const WorkingProcess = () => {
             </div>
           </div>
           <div className="col-lg-8 wow fadeInUp" data-wow-delay=".5s">
-            <div className="working-card-items">
+            <div className="working-card-items working-card-items--step-4">
               <div className="content">
                 <span className="sub-title">Step 04</span>
-                <h3>Get 3x Results</h3>
+                <h3>Launch &amp; Grow</h3>
                 <p>
-                  Sed ut perspiciatis unde omnis iste natus error <br />{" "}
-                  voluptatem accusantium
+                  We deploy with care, support your teams, and keep improving
+                  <br />
+                  so the solution delivers lasting digital impact.
                 </p>
               </div>
               <div className="icon">
@@ -116,8 +125,9 @@ export const WorkingProcess2 = () => {
             Working Process
           </span>
           <h2 className="wow fadeInUp" data-wow-delay=".3s">
-            We Complete Our Work to Follow <br />
-            Some Easy Ways
+            How Csolve Delivers Digital Solutions
+            <br />
+            That Create Lasting Value
           </h2>
         </div>
         <div className="work-process-wrapper">
@@ -129,10 +139,10 @@ export const WorkingProcess2 = () => {
                   data-wow-delay=".3s"
                 >
                   <div className="digit-box">01</div>
-                  <h4>Market Research</h4>
+                  <h4>Discover &amp; Align</h4>
                   <p>
-                    Quis autem vel eum iure reprehenderit qui in ea voluptate
-                    velit esse quam nihil molestiae
+                    We understand your goals, users, and constraints so every
+                    solution starts with real operational needs.
                   </p>
                 </div>
                 <div
@@ -140,10 +150,10 @@ export const WorkingProcess2 = () => {
                   data-wow-delay=".5s"
                 >
                   <div className="digit-box">02</div>
-                  <h4>Process and Analysis</h4>
+                  <h4>Design &amp; Build</h4>
                   <p>
-                    Quis autem vel eum iure reprehenderit qui in ea voluptate
-                    velit esse quam nihil molestiae
+                    We design, develop, and integrate practical systems across
+                    software, AI, ERP, and infrastructure.
                   </p>
                 </div>
                 <div
@@ -151,10 +161,10 @@ export const WorkingProcess2 = () => {
                   data-wow-delay=".7s"
                 >
                   <div className="digit-box">03</div>
-                  <h4>Successful Project</h4>
+                  <h4>Launch &amp; Grow</h4>
                   <p>
-                    Quis autem vel eum iure reprehenderit qui in ea voluptate
-                    velit esse quam nihil molestiae
+                    We deploy with care, support your teams, and continue
+                    improving for lasting digital impact.
                   </p>
                 </div>
               </div>
@@ -164,7 +174,7 @@ export const WorkingProcess2 = () => {
                 className="work-process-image wow fadeInUp"
                 data-wow-delay=".4s"
               >
-                <img src="/assets/img/business-mens-grsl.jpg" alt="img" />
+                <img src="/assets/img/about/02.png" alt="Csolve Technology team" />
               </div>
             </div>
           </div>

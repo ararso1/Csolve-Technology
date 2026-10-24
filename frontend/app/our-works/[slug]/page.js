@@ -1,6 +1,7 @@
 import Breadcrumb from "@/components/Breadcrumb";
 import Cta from "@/components/Cta";
-import { getWorkBySlug, works } from "@/data/works";
+import WorkProjectGallery from "@/components/WorkProjectGallery";
+import { getWorkBySlug, getWorkGallery, works } from "@/data/works";
 import NextLayout from "@/layouts/NextLayout";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -34,6 +35,8 @@ const page = ({ params }) => {
       return bScore - aScore;
     })
     .slice(0, 3);
+
+  const galleryImages = getWorkGallery(work);
 
   return (
     <NextLayout>
@@ -104,6 +107,8 @@ const page = ({ params }) => {
               </div>
             </div>
           </div>
+
+          <WorkProjectGallery title={work.title} images={galleryImages} />
 
           <div className="section-title text-center mt-5 pt-4">
             <span className="sub-content">

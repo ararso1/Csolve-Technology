@@ -1,4 +1,5 @@
 import Counter from "./Counter";
+import Link from "next/link";
 
 const GrowBusiness = ({ paddingTop = 0 }) => {
   return (
@@ -13,7 +14,7 @@ const GrowBusiness = ({ paddingTop = 0 }) => {
                 className="grow-business-image wow fadeInUp"
                 data-wow-delay=".3s"
               >
-                <img src="/assets/img/grow/02.jpg" alt="img" />
+                <img src="/assets/img/grow/02.jpg" alt="Csolve Technology growth" />
                 <div
                   className="grap-shape float-bob-x wow fadeInLeft"
                   data-wow-delay=".5s"
@@ -46,11 +47,11 @@ const GrowBusiness = ({ paddingTop = 0 }) => {
                   >
                     <h2>
                       <span className="count">
-                        <Counter end={85} />
+                        <Counter end={300} />
                       </span>
-                      %
+                      +
                     </h2>
-                    <p>Increase Sales</p>
+                    <p>Websites &amp; Apps Delivered</p>
                   </div>
                   <div
                     className="grow-counting-items wow fadeInUp"
@@ -58,11 +59,11 @@ const GrowBusiness = ({ paddingTop = 0 }) => {
                   >
                     <h2>
                       <span className="count">
-                        <Counter end={15} />
+                        <Counter end={30} />
                       </span>
-                      %
+                      +
                     </h2>
-                    <p>Reduced Losses</p>
+                    <p>Corporate Systems Built</p>
                   </div>
                   <div
                     className="grow-counting-items wow fadeInUp"
@@ -70,11 +71,11 @@ const GrowBusiness = ({ paddingTop = 0 }) => {
                   >
                     <h2>
                       <span className="count">
-                        <Counter end={93} />
+                        <Counter end={1000} />
                       </span>
-                      %
+                      +
                     </h2>
-                    <p>Business growth</p>
+                    <p>Youth Opportunities Created</p>
                   </div>
                 </div>
               </div>
@@ -89,7 +90,7 @@ export default GrowBusiness;
 
 export const GrowBusiness2 = ({ bg }) => {
   return (
-    <section className={`grow-business-section fix section-padding ${bg}`}>
+    <section className={`grow-business-section fix section-padding ${bg || ""}`}>
       <div className="container">
         <div className="grow-business-wrapper">
           <div className="row g-4">
@@ -98,17 +99,17 @@ export const GrowBusiness2 = ({ bg }) => {
                 <div className="section-title">
                   <span className="sub-content wow fadeInUp">
                     <img src="/assets/img/bale.png" alt="img" />
-                    Grow your Business
+                    Grow With Csolve
                   </span>
                   <h2 className="wow fadeInUp" data-wow-delay=".3s">
-                    Innovative Business Increase and Branding Solutions
+                    Practical Technology That Strengthens Operations And Growth
                   </h2>
                 </div>
                 <p className="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".5s">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam, eaque
-                  ipsa quae ab illo inventore veritatis et quasi architecto
-                  beatae vitae dicta.
+                  From custom software and ERP to AI, infrastructure, and
+                  digital presence, Csolve Technology delivers solutions that
+                  help organizations work smarter, serve better, and grow with
+                  confidence across Ethiopia and East Africa.
                 </p>
                 <div className="grow-percent-area">
                   <div className="row g-4">
@@ -116,13 +117,14 @@ export const GrowBusiness2 = ({ bg }) => {
                       <div className="grow-percent-items">
                         <h2>
                           <span className="count">
-                            <Counter end={85} />
+                            <Counter end={300} />
                           </span>
-                          %
+                          +
                         </h2>
-                        <h3>Increase Sales</h3>
+                        <h3>Websites &amp; Apps</h3>
                         <p>
-                          Sed perspiciatis unde omnis natus error sit voluptate
+                          Digital products delivered for businesses,
+                          institutions, and growing organizations.
                         </p>
                         <div className="vector-shape pt-3">
                           <img src="/assets/img/vector.png" alt="img" />
@@ -133,13 +135,14 @@ export const GrowBusiness2 = ({ bg }) => {
                       <div className="grow-percent-items">
                         <h2>
                           <span className="count">
-                            <Counter end={15} />
+                            <Counter end={30} />
                           </span>
-                          %
+                          +
                         </h2>
-                        <h3>Reduced Losses</h3>
+                        <h3>Corporate Systems</h3>
                         <p>
-                          Sed perspiciatis unde omnis natus error sit voluptate
+                          Enterprise platforms built to improve operations,
+                          visibility, and decision-making.
                         </p>
                         <div className="vector-shape pt-3">
                           <img src="/assets/img/vector.png" alt="img" />
@@ -147,6 +150,12 @@ export const GrowBusiness2 = ({ bg }) => {
                       </div>
                     </div>
                   </div>
+                </div>
+                <div className="mt-4 wow fadeInUp" data-wow-delay=".6s">
+                  <Link href="/contact" className="theme-btn">
+                    Start Growing With Us
+                    <i className="far fa-arrow-right" />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -162,7 +171,10 @@ export const GrowBusiness2 = ({ bg }) => {
                   <img src="/assets/img/grow/user-shape.png" alt="shape-img" />
                 </div>
                 <div className="grow-image">
-                  <img src="/assets/img/grow/01.jpg" alt="img" />
+                  <img
+                    src="/assets/img/grow/01.jpg"
+                    alt="Csolve Technology business growth"
+                  />
                 </div>
               </div>
             </div>
