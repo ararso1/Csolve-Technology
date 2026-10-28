@@ -1,5 +1,6 @@
 import Breadcrumb from "@/components/Breadcrumb";
 import Cta from "@/components/Cta";
+import RelatedWorksSlider from "@/components/RelatedWorksSlider";
 import WorkProjectGallery from "@/components/WorkProjectGallery";
 import { getWorkBySlug, getWorkGallery, works } from "@/data/works";
 import NextLayout from "@/layouts/NextLayout";
@@ -34,7 +35,7 @@ const page = ({ params }) => {
       ).length;
       return bScore - aScore;
     })
-    .slice(0, 3);
+    .slice(0, 9);
 
   const galleryImages = getWorkGallery(work);
 
@@ -110,35 +111,7 @@ const page = ({ params }) => {
 
           <WorkProjectGallery title={work.title} images={galleryImages} />
 
-          <div className="section-title text-center mt-5 pt-4">
-            <span className="sub-content">
-              <img src="/assets/img/bale.png" alt="img" />
-              More Works
-            </span>
-            <h2>Explore Related Projects</h2>
-          </div>
-          <div className="row g-4">
-            {related.map((item) => (
-              <div key={item.slug} className="col-xl-4 col-lg-6 col-md-6">
-                <div className="work-card-items">
-                  <div className="work-image">
-                    <img src={item.image} alt={item.title} />
-                    <span className="work-category">{item.sector}</span>
-                  </div>
-                  <div className="work-content">
-                    <h3>
-                      <Link href={`/our-works/${item.slug}`}>{item.title}</Link>
-                    </h3>
-                    <p>{item.summary}</p>
-                    <Link href={`/our-works/${item.slug}`} className="link-btn">
-                      View Details
-                      <i className="far fa-arrow-right" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <RelatedWorksSlider works={related} />
         </div>
       </section>
       <Cta sectionPadding={true} />

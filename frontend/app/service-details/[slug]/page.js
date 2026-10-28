@@ -99,7 +99,7 @@ const page = ({ params }) => {
                     <li>
                       <i className="fas fa-star" />
                     </li>
-                    <li>East Africa Focused</li>
+                    <li>Africa Focused</li>
                   </ul>
                 </div>
               </div>

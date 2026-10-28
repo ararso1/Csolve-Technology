@@ -68,7 +68,7 @@ const page = () => {
                     className="experience-text wow fadeInUp"
                     data-wow-delay=".6s"
                   >
-                    <li>Serving Ethiopia &amp; East Africa</li>
+                    <li>Serving Ethiopia &amp; Africa</li>
                     <li>
                       <i className="fas fa-star" />
                     </li>
@@ -96,7 +96,7 @@ const page = () => {
                       {company.motto}
                     </span>
                     <h2 className="wow fadeInUp" data-wow-delay=".3s">
-                      A Trusted Technology Partner Across East Africa
+                      A Trusted Technology Partner Across Africa
                     </h2>
                   </div>
                   <p className="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".5s">

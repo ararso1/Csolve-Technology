@@ -10,7 +10,7 @@ const FEATURED_VIDEO = {
   poster: "/assets/img/cta/cta-video.jpg",
   title: "Inside Csolve Technology",
   subtitle:
-    "A look at how we deliver digital systems, community initiatives, and lasting impact across East Africa.",
+    "A look at how we deliver digital systems, community initiatives, and lasting impact across Africa.",
 };
 
 const HomeMediaShowcase = () => {

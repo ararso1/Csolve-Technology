@@ -130,7 +130,12 @@ export const works = [
     sector: "Government / Public",
     categories: ["government", "digital-transformation", "software-erp"],
     year: "2025",
-    image: "/assets/img/works/oromia-islamic-affairs.jpg",
+    image: "/assets/new-img/IMG_8892.JPG",
+    gallery: [
+      "/assets/new-img/IMG_8889.JPG",
+      "/assets/new-img/IMG_8880.JPG",
+      "/assets/new-img/IMG_2876.JPG",
+    ],
     summary:
       "Comprehensive organizational digitalization covering HRMS, Halal Department operations, membership services, and mosque management across the region.",
     description:
@@ -157,7 +162,17 @@ export const works = [
     sector: "Education",
     categories: ["education", "government", "digital-transformation"],
     year: "2026",
-    image: "/assets/img/works/mechara-education.jpg",
+    image: "/assets/new-img/IMG_0747.JPG",
+    gallery: [
+      "/assets/new-img/IMG_0756.JPG",
+      "/assets/new-img/IMG_0741.JPG",
+      "/assets/new-img/IMG_0757.JPG",
+      "/assets/new-img/IMG_2793.JPG",
+      "/assets/new-img/IMG_2794.JPG",
+      "/assets/new-img/IMG_2849.JPG",
+      "/assets/new-img/IMG_2826.JPG",
+      "/assets/new-img/IMG_0945.JPG",
+    ],
     summary:
       "Digital transformation of the city Education Office and schools through integrated education management systems.",
     description:
@@ -182,7 +197,17 @@ export const works = [
     sector: "Government / Public",
     categories: ["government", "websites"],
     year: "2026",
-    image: "/assets/img/works/mechara-city-website.jpg",
+    image: "/assets/new-img/IMG_2849.JPG",
+    gallery: [
+      "/assets/new-img/IMG_0756.JPG",
+      "/assets/new-img/IMG_0741.JPG",
+      "/assets/new-img/IMG_0757.JPG",
+      "/assets/new-img/IMG_2793.JPG",
+      "/assets/new-img/IMG_2794.JPG",
+      "/assets/new-img/IMG_2849.JPG",
+      "/assets/new-img/IMG_2826.JPG",
+      "/assets/new-img/IMG_0945.JPG",
+    ],
     summary:
       "Official city website for public information, updates, announcements, and institutional services.",
     description:
@@ -207,7 +232,16 @@ export const works = [
     sector: "Education",
     categories: ["education", "digital-transformation"],
     year: "2025",
-    image: "/assets/img/works/hunde-secondary-school.jpg",
+    image: "/assets/new-img/IMG_6554.JPG",
+    gallery: [
+      "/assets/new-img/IMG_2763.JPG",
+      "/assets/new-img/IMG_6511.JPG",
+      "/assets/new-img/IMG_6599.JPG",
+      "/assets/new-img/IMG_6610.JPG",
+      "/assets/new-img/IMG_6638.JPG",
+      "/assets/new-img/IMG_2756.JPG",
+      "/assets/new-img/IMG_2766.PNG",
+    ],
     summary:
       "Comprehensive school digitalization supporting administration, academic management, and operational efficiency in Gelemso.",
     description:
@@ -257,7 +291,15 @@ export const works = [
     sector: "Education",
     categories: ["education", "digital-transformation"],
     year: "2023",
-    image: "/assets/img/works/meahdalnur-school.jpg",
+    image: "/assets/new-img/IMG_8802.JPG",
+    gallery: [
+      "/assets/new-img/IMG_8396.JPG",
+      "/assets/new-img/IMG_8504.JPG",
+      "/assets/new-img/IMG_8517.JPG",
+      "/assets/new-img/IMG_8766.JPG",
+      "/assets/new-img/IMG_8519.PNG",
+      "/assets/new-img/IMG_8802.JPG",
+    ],
     summary:
       "Digital solutions that improve school administration, academic operations, information management, and reporting.",
     description:
@@ -307,7 +349,7 @@ export const works = [
     sector: "NGOs",
     categories: ["ngo", "websites", "digital-transformation"],
     year: "2024",
-    image: "/assets/img/works/aynage-child-family.jpg",
+    image: "/assets/new-img/childhood.jpg",
     summary:
       "A website and internal management system that strengthen digital presence and streamline nonprofit operations.",
     description:

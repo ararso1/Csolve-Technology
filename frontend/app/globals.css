@@ -596,6 +596,19 @@
   object-fit: cover;
 }
 
+/* Our Works detail — related works auto slider */
+.related-works-slider {
+  margin-top: 20px;
+}
+
+.related-works-slider .work-card-items {
+  height: 100%;
+}
+
+.related-works-slider .related-works-swiper {
+  padding-bottom: 8px;
+}
+
 /* Our Works detail — project gallery */
 .work-project-gallery {
   margin-top: 56px;

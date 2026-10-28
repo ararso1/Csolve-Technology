@@ -74,7 +74,7 @@ export const Service2 = ({
           </span>
           <h2 className="wow fadeInUp" data-wow-delay=".3s">
             Trusted Technology Services <br />
-            For Organizations Across East Africa
+            For Organizations Across Africa
           </h2>
         </div>
         <div className="row">

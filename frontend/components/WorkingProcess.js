@@ -14,7 +14,7 @@ const WorkingProcess = () => {
           </h2>
           <p className="mt-3 wow fadeInUp" data-wow-delay=".4s">
             From discovery to launch, we follow a clear process built for
-            real institutions, businesses, and communities across East Africa.
+            real institutions, businesses, and communities across Africa.
           </p>
         </div>
         <div className="row align-items-center justify-content-between">

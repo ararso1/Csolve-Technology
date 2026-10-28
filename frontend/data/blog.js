@@ -8,7 +8,7 @@ export const blogCategories = [
 
 export const blogTags = [
   "Csolve Technology",
-  "East Africa",
+  "Africa",
   "Software",
   "ERP",
   "AI",
@@ -20,7 +20,7 @@ export const blogTags = [
 export const blogPosts = [
   {
     slug: "building-more-than-systems-digital-transformation",
-    title: "We Build More Than Systems: What Digital Transformation Means for East Africa",
+    title: "We Build More Than Systems: What Digital Transformation Means for Africa",
     excerpt:
       "Digital transformation is not only about new software. At Csolve Technology, it means practical systems that improve how organizations serve people every day.",
     date: "March 12, 2026",
@@ -30,7 +30,7 @@ export const blogPosts = [
     image: "/assets/img/news/01.jpg",
     thumb: "/assets/img/news/pp1.jpg",
     content: [
-      "Across Ethiopia and East Africa, organizations are under pressure to deliver faster, more transparent, and more reliable services. The right technology partner does more than install tools — they help teams work with clarity and confidence.",
+      "Across Ethiopia and Africa, organizations are under pressure to deliver faster, more transparent, and more reliable services. The right technology partner does more than install tools — they help teams work with clarity and confidence.",
       "At Csolve Technology, digital transformation starts with understanding real workflows. Whether we are supporting a private enterprise, a government institution, or an NGO, our goal is the same: build systems that create lasting value.",
       "That is why our motto is We Build More Than Systems. Software, ERP, AI, infrastructure, and digital marketing only matter when they solve a real problem and leave people better equipped than before.",
     ],

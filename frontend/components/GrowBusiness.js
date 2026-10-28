@@ -36,7 +36,7 @@ const GrowBusiness = ({ paddingTop = 0 }) => {
                 </div>
                 <p className="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".5s">
                   Csolve Technology helps private businesses, government
-                  institutions, and NGOs across Ethiopia and East Africa solve
+                  institutions, and NGOs across Ethiopia and Africa solve
                   real problems with software, AI, infrastructure, and digital
                   marketing that create lasting value.
                 </p>
@@ -109,7 +109,7 @@ export const GrowBusiness2 = ({ bg }) => {
                   From custom software and ERP to AI, infrastructure, and
                   digital presence, Csolve Technology delivers solutions that
                   help organizations work smarter, serve better, and grow with
-                  confidence across Ethiopia and East Africa.
+                  confidence across Ethiopia and Africa.
                 </p>
                 <div className="grow-percent-area">
                   <div className="row g-4">
@@ -172,7 +172,7 @@ export const GrowBusiness2 = ({ bg }) => {
                 </div>
                 <div className="grow-image">
                   <img
-                    src="/assets/img/grow/01.jpg"
+                    src="/assets/img/grow/01.png"
                     alt="Csolve Technology business growth"
                   />
                 </div>

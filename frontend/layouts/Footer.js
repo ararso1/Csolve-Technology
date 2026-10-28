@@ -60,7 +60,7 @@ const Footer1 = () => {
                     We Build More Than Systems. Csolve Technology is an Ethiopian
                     technology company delivering software, AI, infrastructure,
                     and digital marketing for private businesses, government, and
-                    NGOs across East Africa.
+                    NGOs across Africa.
                   </p>
                   <div className="social-icon d-flex align-items-center">
                     <a href="#">

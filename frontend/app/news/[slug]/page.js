@@ -58,7 +58,7 @@ const page = ({ params }) => {
                     <div className="blog-tagcloud">
                       <Link href="/news">{post.categoryLabel}</Link>
                       <Link href="/news">Csolve Technology</Link>
-                      <Link href="/news">East Africa</Link>
+                      <Link href="/news">Africa</Link>
                     </div>
                     <Link href="/news" className="theme-btn">
                       Back To Blog

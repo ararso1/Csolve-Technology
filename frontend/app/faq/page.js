@@ -9,7 +9,7 @@ const faqItems = [
     id: "faq1",
     question: "What does Csolve Technology do?",
     answer:
-      "Csolve Technology is an Ethiopian technology company delivering software development, websites, mobile apps, ERP, AI solutions, networking and IT infrastructure, digital marketing, social media management, and cybersecurity for organizations across Ethiopia and East Africa.",
+      "Csolve Technology is an Ethiopian technology company delivering software development, websites, mobile apps, ERP, AI solutions, networking and IT infrastructure, digital marketing, social media management, and cybersecurity for organizations across Ethiopia and Africa.",
   },
   {
     id: "faq2",

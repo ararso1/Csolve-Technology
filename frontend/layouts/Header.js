@@ -327,7 +327,7 @@ const Sidebar = ({ sidebarToggle, close, menu, single }) => {
               <p className="text d-none d-xl-block mb-5">
                 We Build More Than Systems. Csolve Technology delivers software,
                 AI, ERP, infrastructure, and digital solutions for private
-                businesses, government, and NGOs across East Africa.
+                businesses, government, and NGOs across Africa.
               </p>
               <div className="offcanvas__contact">
                 <h4>Contact Info</h4>

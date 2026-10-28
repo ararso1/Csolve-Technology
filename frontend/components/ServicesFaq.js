@@ -5,7 +5,7 @@ const faqItems = [
     id: "faq1",
     question: "What organizations does Csolve Technology serve?",
     answer:
-      "We work with private businesses, government institutions, NGOs, startups, and growing SMEs across Ethiopia and East Africa.",
+      "We work with private businesses, government institutions, NGOs, startups, and growing SMEs across Ethiopia and Africa.",
   },
   {
     id: "faq2",

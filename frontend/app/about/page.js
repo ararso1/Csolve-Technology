@@ -93,7 +93,7 @@ const page = () => {
                   </div>
                   <div className="about-page-badge">
                     <strong>6+</strong>
-                    <span>Years Building Impact Across East Africa</span>
+                    <span>Years Building Impact Across Africa</span>
                   </div>
                 </div>
               </div>
@@ -203,13 +203,13 @@ const page = () => {
                     Who We Serve
                   </span>
                   <h2 className="wow fadeInUp" data-wow-delay=".3s">
-                    A Trusted Technology Partner Across East Africa
+                    A Trusted Technology Partner Across Africa
                   </h2>
                 </div>
                 <p className="wow fadeInUp" data-wow-delay=".45s">
                   We position Csolve Technology as a reliable partner for
                   organizations seeking practical digital solutions, secure
-                  systems, and long-term growth across Ethiopia and East Africa.
+                  systems, and long-term growth across Ethiopia and Africa.
                 </p>
                 <ul className="about-page-list wow fadeInUp" data-wow-delay=".55s">
                   {company.clients.map((client) => (

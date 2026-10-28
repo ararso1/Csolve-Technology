@@ -8,7 +8,7 @@ export const teamMembers = [
     image: "/assets/img/team/hayu.png",
     email: "info@csolvetechnology.com",
     phone: "+251 986828384",
-    bio: "Eng. Hayu Usmail Ibro is Founder and General Manager of Csolve Technology. A young and energetic leader, he drives the company’s vision to build more than systems — delivering practical technology that creates lasting value for businesses and communities across Ethiopia and East Africa.",
+    bio: "Eng. Hayu Usmail Ibro is Founder and General Manager of Csolve Technology. A young and energetic leader, he drives the company’s vision to build more than systems — delivering practical technology that creates lasting value for businesses and communities across Ethiopia and Africa.",
     focus: [
       "Company vision and strategic growth",
       "Client partnerships and institutional relationships",

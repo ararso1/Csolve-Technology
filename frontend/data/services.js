@@ -229,9 +229,9 @@ export const getServiceBySlug = (slug) =>
 export const company = {
   motto: "We Build More Than Systems",
   about: [
-    "Csolve Technology is an Ethiopian technology company serving private businesses, government institutions, and non-governmental organizations across Ethiopia and the wider East African region.",
+    "Csolve Technology is an Ethiopian technology company serving private businesses, government institutions, and non-governmental organizations across Ethiopia and the wider African region.",
     "We deliver innovative digital solutions that help organizations improve efficiency, solve real-world problems, and accelerate digital transformation.",
-    "We aim to be one of East Africa’s leading technology companies, combining software engineering, artificial intelligence, infrastructure, and digital marketing to create lasting value.",
+    "We aim to be one of Africa’s leading technology companies, combining software engineering, artificial intelligence, infrastructure, and digital marketing to create lasting value.",
   ],
   vision:
     "To build one of Africa’s most influential multi-sector ecosystems, with 30+ active businesses within 5 years and 200+ businesses within 10 years, creating jobs, infrastructure, digital capacity, and lasting economic value.",
