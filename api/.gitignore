@@ -6,5 +6,8 @@ db.sqlite3
 media/
 staticfiles/
 .env
+.env.local
 *.log
 .DS_Store
+tmp/
+passenger_wsgi.pyc
