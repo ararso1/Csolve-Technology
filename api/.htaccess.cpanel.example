@@ -1,0 +1,9 @@
+# Copy to `.htaccess` ONLY if cPanel did not already create one.
+# Replace YOUR_CPANEL_USER and the Python version to match Setup Python App.
+#
+# Preferred: let cPanel → Setup Python App write these lines for you.
+
+PassengerEnabled On
+PassengerAppRoot "/home/YOUR_CPANEL_USER/api"
+PassengerBaseURI "/"
+PassengerPython "/home/YOUR_CPANEL_USER/virtualenv/api/3.11/bin/python"

@@ -28,27 +28,40 @@ python manage.py runserver
 
 ## cPanel production (Passenger)
 
-1. Create subdomain **api.csolvetechnology.com** pointing at the `api` application folder.
-2. **Setup Python App** in cPanel:
-   - Application root: the `api` directory
-   - Startup file: `passenger_wsgi.py`
-   - Entry point: `application`
-3. Create/select a virtualenv and install deps:
+### Important (fixes Apache 404)
+
+A response like **“The resource requested could not be found on this server!”** means Apache/LiteSpeed is answering — Passenger/Django is **not** attached to the subdomain yet.
+
+1. Upload the full `api` folder to the server (must include `passenger_wsgi.py`, `config/`, `content/`, `manage.py`, `requirements.txt`).
+2. In cPanel create subdomain **api.csolvetechnology.com**.
+3. **Setup Python App**:
+   - **Application domain**: `api.csolvetechnology.com` (not only a path under public_html)
+   - **Application root**: the folder that contains `passenger_wsgi.py`
+   - **Application URL**: `/`
+   - **Startup file**: `passenger_wsgi.py`
+   - **Entry point**: `application`
+4. Open the app’s terminal / virtualenv and install:
    ```bash
    pip install -r requirements.txt
    ```
-4. Create `.env` from `.env.production.example` and set a strong `DJANGO_SECRET_KEY`.
-5. Run:
+5. Create `.env` from `.env.production.example` (strong `DJANGO_SECRET_KEY`, `DJANGO_DEBUG=False`).
+6. Run:
    ```bash
    python manage.py migrate
    python manage.py collectstatic --noinput
    python manage.py createsuperuser
-   python manage.py seed_gallery   # optional first seed
+   python manage.py seed_gallery
    ```
-6. Ensure `db.sqlite3`, `media/`, and `.env` are writable by the app user.
-7. Restart the Python app in cPanel.
+7. Make sure subdomain **document root = application root** (same folder as `passenger_wsgi.py`).
+8. Click **Restart** on the Python app.
+9. Confirm:
+   - https://api.csolvetechnology.com/ → `{"status":"ok","service":"csolve-api"}`
+   - https://api.csolvetechnology.com/api/gallery/
+   - https://api.csolvetechnology.com/admin/
 
-Keep SQLite as-is — do not switch to MySQL/Postgres unless you intentionally change the project later.
+If cPanel did not write Passenger lines into `.htaccess`, copy `.htaccess.cpanel.example` → `.htaccess` and replace `YOUR_CPANEL_USER` / Python version.
+
+Keep SQLite as-is — do not switch to MySQL/Postgres unless you intentionally change later.
 
 ## Frontend
 
