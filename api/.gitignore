@@ -9,5 +9,6 @@ staticfiles/
 .env.local
 *.log
 .DS_Store
-tmp/
+tmp/*.log
 passenger_wsgi.pyc
+

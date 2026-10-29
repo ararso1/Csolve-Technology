@@ -61,6 +61,25 @@ A response like **“The resource requested could not be found on this server!�
 
 If cPanel did not write Passenger lines into `.htaccess`, copy `.htaccess.cpanel.example` → `.htaccess` and replace `YOUR_CPANEL_USER` / Python version.
 
+### HTTP 500 troubleshooting
+
+1. In the Python App terminal run:
+   ```bash
+   pip install -r requirements.txt
+   python check_deploy.py
+   python manage.py migrate
+   python manage.py collectstatic --noinput
+   ```
+2. Restart the Python app.
+3. Open these log files in the `api` folder:
+   - `tmp/startup.log` — Passenger/Django boot errors
+   - `tmp/django_errors.log` — runtime errors
+4. Temporarily set in `.env`:
+   ```
+   DJANGO_DEBUG=True
+   ```
+   Restart, reload https://api.csolvetechnology.com/, read the traceback, then set `DJANGO_DEBUG=False` again.
+
 Keep SQLite as-is — do not switch to MySQL/Postgres unless you intentionally change later.
 
 ## Frontend
