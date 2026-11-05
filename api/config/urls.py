@@ -1,8 +1,8 @@
 from django.conf import settings
-from django.conf.urls.static import static
 from django.contrib import admin
 from django.http import JsonResponse
-from django.urls import include, path
+from django.urls import include, path, re_path
+from django.views.static import serve
 
 admin.site.site_header = "Csolve Technology Admin"
 admin.site.site_title = "Csolve Admin"
@@ -19,6 +19,12 @@ urlpatterns = [
     path("api/gallery/", include("content.urls")),
 ]
 
-# Serve uploaded media on cPanel (SQLite + local media folder).
-# Static files are handled by WhiteNoise.
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# Always serve uploaded media (DEBUG=False on cPanel skips django.conf.urls.static).
+# Required for gallery images at /media/...
+urlpatterns += [
+    re_path(
+        r"^media/(?P<path>.*)$",
+        serve,
+        {"document_root": settings.MEDIA_ROOT},
+    ),
+]

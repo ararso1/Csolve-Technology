@@ -61,6 +61,16 @@ A response like **“The resource requested could not be found on this server!�
 
 If cPanel did not write Passenger lines into `.htaccess`, copy `.htaccess.cpanel.example` → `.htaccess` and replace `YOUR_CPANEL_USER` / Python version.
 
+### Media images 404 (`/media/gallery/...`)
+
+Django’s built-in `static()` helper does **not** serve files when `DEBUG=False`.
+This project always routes `/media/` through Django so gallery uploads work on cPanel.
+
+After deploying the latest `config/urls.py`:
+1. Restart the Python app.
+2. Confirm the file exists on the server under `api/media/gallery/...`
+3. Linux is case-sensitive: `IMG_3791.JPG` ≠ `img_3791.jpg`
+
 ### HTTP 500 troubleshooting
 
 1. In the Python App terminal run:

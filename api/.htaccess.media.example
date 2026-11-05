@@ -1,0 +1,9 @@
+# Optional Apache fallback: serve /media/ as real files if Passenger
+# is not handling them. Put this in the API document root and adjust paths.
+#
+# Alias /media/ /home/YOUR_CPANEL_USER/api/media/
+#
+# <Directory "/home/YOUR_CPANEL_USER/api/media">
+#     Require all granted
+#     Options FollowSymLinks
+# </Directory>
